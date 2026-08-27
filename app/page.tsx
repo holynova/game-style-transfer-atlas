@@ -12,8 +12,8 @@ type GameStyle = {
   structure?: string[];
 };
 
-const sourceImage = '/images/jingan-source.png';
-const thumbnail = (path: string) => path.replace('/images/', '/images/thumbs/').replace('.png', '.webp');
+const sourceImage = 'images/jingan-source.png';
+const thumbnail = (path: string) => path.replace('images/', 'images/thumbs/').replace('.png', '.webp');
 
 const defaultStructure = [
   '输入锚点：明确参考图中必须保留的机位、建筑轮廓与空间层次',
@@ -29,7 +29,7 @@ const games: GameStyle[] = [
     id: 'zelda',
     title: 'Zelda: Tears of the Kingdom',
     subtitle: '明亮色块 · 海拉鲁探索 · 轻量 HUD',
-    image: '/images/zelda.png',
+    image: 'images/zelda.png',
     skill: 'zelda-screenshot-transfer',
     prompt: `Use case: style-transfer
 Input image: Image 1 is the edit target and composition reference.
@@ -42,7 +42,7 @@ Avoid: illustration, anime poster, cinematic CG, photoreal city, dense windows, 
     id: 'dark-souls-3',
     title: 'Dark Souls III',
     subtitle: '灰烬衰败 · 洛斯里克石材 · 魂系 HUD',
-    image: '/images/dark-souls-3.png',
+    image: 'images/dark-souls-3.png',
     skill: 'dark-souls-3-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: edit target and composition reference. Preserve the exact vertical camera, layered foreground plaza and broad steps, market-canopy rhythm, central multi-tier golden Jing'an Temple roof mass with three arched doors, smaller right pagoda, and tall curved-arch skyscraper silhouette.
@@ -55,7 +55,7 @@ Avoid: fantasy poster, oversized boss, excessive flames, modern objects, anime, 
     id: 'elden-ring',
     title: 'Elden Ring',
     subtitle: '黄金树恩典 · 王城圣殿 · 开放世界',
-    image: '/images/elden-ring.png',
+    image: 'images/elden-ring.png',
     skill: 'elden-ring-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: edit target and composition reference. Preserve the exact camera, layered plaza and steps, canopy rhythm, central golden temple, three arched doors, right pagoda and curved-open-crown tower.
@@ -68,7 +68,7 @@ Avoid: generic golden palace, excessive ornament, boss key art, modern objects, 
     id: 'honor-of-kings',
     title: 'Honor of Kings',
     subtitle: '兵线 · 防御塔 · 高可读性移动 MOBA',
-    image: '/images/honor-of-kings.png',
+    image: 'images/honor-of-kings.png',
     skill: 'honor-of-kings-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: edit target and composition reference. Preserve the vertical camera, broad stepped plaza, repeated canopy stalls, central golden temple with three doors, smaller right pagoda and curved-open-crown skyscraper.
@@ -81,7 +81,7 @@ Avoid: splash art, giant character portrait, excessive VFX, modern vehicles, ove
     id: 'animal-crossing',
     title: 'Animal Crossing: New Horizons',
     subtitle: '圆润低多边形 · 岛屿市集 · 轻松生活',
-    image: '/images/animal-crossing.png',
+    image: 'images/animal-crossing.png',
     skill: 'animal-crossing-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: edit target and composition reference. Preserve the vertical framing, tiered foreground plaza and steps, repeated market canopies, central golden temple with three doors, right pagoda and curved-open-crown building.
@@ -94,7 +94,7 @@ Avoid: combat, dark fantasy, realistic crowds, clutter, photoreal materials, exc
     id: 'minecraft',
     title: 'Minecraft',
     subtitle: '方块体素 · 生存模式 · 像素材质',
-    image: '/images/minecraft.png',
+    image: 'images/minecraft.png',
     skill: 'minecraft-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Image 1 is the edit target and composition reference. Preserve the exact vertical framing, broad stepped foreground plaza, repeated market canopies, central multi-tier golden Jing'an Temple with three arched doors, smaller right pagoda, and tall curved-open-crown skyscraper behind it.
@@ -107,7 +107,7 @@ Avoid: rounded geometry, realistic people, cinematic ray tracing, generic fantas
     id: 'fortnite',
     title: 'Fortnite',
     subtitle: '明亮 PBR · 大逃杀 POI · 建造与战利品',
-    image: '/images/fortnite.png',
+    image: 'images/fortnite.png',
     skill: 'fortnite-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the exact vertical framing, stepped plaza, market canopies, central multi-tier golden Jing'an Temple with three arched doors, right pagoda and loop-crown skyscraper.
@@ -120,7 +120,7 @@ Avoid: key art, giant hero portrait, realistic military look, excessive effects,
     id: 'gta-v',
     title: 'Grand Theft Auto V',
     subtitle: '开放城市 · 写实交通 · 第三人称任务',
-    image: '/images/gta-v.png',
+    image: 'images/gta-v.png',
     skill: 'gta-v-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the source photo's exact 9:16 framing and spatial anchors: stepped foreground plaza, central multi-tier golden Jing'an Temple with three arched doors, right pagoda, dense market edge and curved open-crown skyscraper.
@@ -134,7 +134,7 @@ Avoid: cinematic poster, giant character, explosions, generic American skyline, 
     id: 'cyberpunk-2077',
     title: 'Cyberpunk 2077',
     subtitle: '雨夜霓虹 · 第一人称 · 科技寺院',
-    image: '/images/cyberpunk-2077.png',
+    image: 'images/cyberpunk-2077.png',
     skill: 'cyberpunk-2077-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the stepped plaza, market canopies, central golden temple with three arched doors, right pagoda and curved open-crown tower.
@@ -147,7 +147,7 @@ Avoid: movie still, giant portrait, billboards hiding the temple, fantasy castle
     id: 'red-dead-redemption-2',
     title: 'Red Dead Redemption 2',
     subtitle: '1899 年代 · 西部写实 · 圣丹尼斯市集',
-    image: '/images/red-dead-redemption-2.png',
+    image: 'images/red-dead-redemption-2.png',
     skill: 'rdr2-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the exact vertical composition: broad stepped plaza, rows of market awnings, central multi-tier Jing'an Temple with three arched doors, right pagoda and curved open-crown skyscraper.
@@ -160,7 +160,7 @@ Avoid: movie poster, giant gunfight, sepia-only treatment, modern objects, water
     id: 'hogwarts-legacy',
     title: 'Hogwarts Legacy',
     subtitle: '魔法学院 · 东方庭院 · 咒语探索',
-    image: '/images/hogwarts-legacy.png',
+    image: 'images/hogwarts-legacy.png',
     skill: 'hogwarts-legacy-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the broad plaza steps, market awnings, golden temple with three arched doors, right pagoda and curved open-crown skyscraper.
@@ -174,7 +174,7 @@ Avoid: giant castle replacing the temple, battle scene, theme-park poster, exces
     id: 'super-mario-odyssey',
     title: 'Super Mario Odyssey',
     subtitle: '环球 3D 平台 · 金币路线 · 玩具化关卡',
-    image: '/images/super-mario-odyssey.png',
+    image: 'images/super-mario-odyssey.png',
     skill: '3d-platformer-screenshot-transfer / safe visual prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the vertical camera, broad plaza steps, market awnings, central multi-tier golden Jing'an Temple with three arched doors, right pagoda and curved open-crown skyscraper.
@@ -187,7 +187,7 @@ Avoid: character close-up, key art, photorealism, generic field replacing the ci
     id: 'pokemon-scarlet-violet',
     title: 'Pokémon Scarlet / Violet',
     subtitle: '开放世界 · 动漫渲染 · 训练家与伙伴',
-    image: '/images/pokemon-scarlet-violet.png',
+    image: 'images/pokemon-scarlet-violet.png',
     skill: 'pokemon-sv-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the reference's 9:16 framing, plaza steps, market canopies, golden temple with three arched doors, right pagoda and curved open-crown tower.
@@ -200,7 +200,7 @@ Avoid: giant mascot portrait, battle key art, photorealism, generic empty field,
     id: 'resident-evil-4',
     title: 'Resident Evil 4 Remake',
     subtitle: '越肩生存恐怖 · 冷色废墟 · 压迫动线',
-    image: '/images/resident-evil-4.png',
+    image: 'images/resident-evil-4.png',
     skill: 'resident-evil-4-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the source camera, stepped plaza, market canopies, central temple with three arched doors, right pagoda and loop-crown skyscraper.
@@ -214,7 +214,7 @@ Avoid: gore, giant monster, action poster, unreadably dark architecture, waterma
     id: 'silent-hill-2',
     title: 'Silent Hill 2 Remake',
     subtitle: '心理恐怖 · 浓雾空城 · 孤独探索',
-    image: '/images/silent-hill-2.png',
+    image: 'images/silent-hill-2.png',
     skill: 'silent-hill-2-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
 Input image: Preserve the vertical source camera, broad plaza, market canopies, temple tiers and three doors, right pagoda and curved open-crown skyscraper.
