@@ -12,10 +12,13 @@ type GameStyle = {
   structure?: string[];
   variantImage?: string;
   variantPrompt?: string;
+  timesSquareImage?: string;
+  timesSquarePrompt?: string;
 };
 
 const sourceImage = 'images/jingan-source.png';
 const kyotoSourceImage = 'images/kyoto-source.png';
+const timesSquareSourceImage = 'images/times-square-source.png';
 const thumbnail = (path: string) => path.replace('images/', 'images/thumbs/').replace('.png', '.webp');
 
 const defaultStructure = [
@@ -365,10 +368,168 @@ UI: minimal radio/health indicator and interaction dot.
 Avoid: monster reveal, blood, jump scare, character close-up, watermark.`,
 };
 
+const timesSquareImageById: Record<string, string> = {
+  zelda: 'images/times-square-zelda.png',
+  'dark-souls-3': 'images/times-square-dark-souls-3.png',
+  'elden-ring': 'images/times-square-elden-ring.png',
+  'honor-of-kings': 'images/times-square-honor-of-kings.png',
+  'animal-crossing': 'images/times-square-animal-crossing.png',
+  minecraft: 'images/times-square-minecraft.png',
+  fortnite: 'images/times-square-fortnite.png',
+  'gta-v': 'images/times-square-gta-v.png',
+  'cyberpunk-2077': 'images/times-square-cyberpunk-2077.png',
+  'red-dead-redemption-2': 'images/times-square-red-dead-redemption-2.png',
+  'hogwarts-legacy': 'images/times-square-hogwarts-legacy.png',
+  'super-mario-odyssey': 'images/times-square-super-mario-odyssey.png',
+  'pokemon-scarlet-violet': 'images/times-square-pokemon-scarlet-violet.png',
+  'resident-evil-4': 'images/times-square-resident-evil-4.png',
+  'silent-hill-2': 'images/times-square-silent-hill-2.png',
+};
+
+const timesSquarePromptById: Record<string, string> = {
+  zelda: `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Image 1 is the edit target and composition reference; preserve the wide Times Square street canyon, giant curved LED billboard on the left, dense vertical signs and skyscrapers, center avenue perspective, yellow taxis, pedestrians and bright blue daylight.
+Primary request: transform the supplied New York Times Square photograph into an authentic Nintendo Switch The Legend of Zelda: Tears of the Kingdom landscape gameplay screenshot. Keep the original wide street-canyon composition and landmark placement, but translate the signs into unreadable Hyrule symbols, the billboards into colorful fantasy shop banners, the taxis into small wooden carts, and the avenue into a lively Hyrule city market. Place Link small in third-person view near the lower center, walking into the avenue with a shield. Add a few subtle sky-island fragments and soft shrine-blue accents without obscuring the architecture.
+Style/medium: clean cel-shaded 3D game-engine rendering, large unified color blocks, crisp silhouettes, simplified materials and soft low-contrast shadows.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay camera, street vanishing point centered, full game viewport.
+Lighting/mood: clear daytime, optimistic exploration.
+UI: restrained hearts, stamina wheel, minimap and item indicator only.
+Avoid: vertical image, portrait crop, anime poster, cinematic key art, photoreal Times Square, readable brand logos, oversized HUD, watermark.`,
+  'dark-souls-3': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide Times Square street canyon, left curved LED façade, dense vertical architecture, central avenue vanishing point, foreground sidewalk and traffic lanes.
+Primary request: transform the photograph into an authentic Dark Souls III third-person gameplay screenshot. Recast the avenue as a decaying gothic capital street: the curved LED façade becomes a black cathedral arcade, tall buildings become soot-stained stone towers, billboards become torn heraldic banners, and yellow taxis become abandoned wooden carts. Place one armored Ashen One small and seen from behind near the lower center, approaching the distant gate. Add ember braziers, ash and one faint bonfire.
+Style/medium: grounded dark medieval 3D, wet stone, worn iron and timber, charcoal gray with restrained ember orange.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay camera.
+Lighting/mood: cold overcast dusk, oppressive but readable.
+UI: subtle health, focus, stamina bars, item slot and soul count.
+Avoid: vertical image, cinematic key art, oversized boss, excessive fire, modern logos, watermark.`,
+  'elden-ring': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide urban canyon, curved left façade, dense towers, center avenue perspective, road markings and yellow-car foreground rhythm.
+Primary request: transform the photograph into an authentic Elden Ring third-person gameplay screenshot. Recast the avenue as a monumental ruined capital: the curved LED building becomes a sacred arc-crown tower, skyscrapers become weathered citadels, billboards become faded rune banners and taxis become medieval wagons. Place a lone Tarnished small from behind near the lower center, walking toward a distant golden sanctuary. Add one subtle Site of Grace and drifting golden leaves.
+Style/medium: detailed but readable open-world 3D, pale stone, antique bronze, muted blue-gray haze and restrained gold.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay capture.
+Lighting/mood: solemn blue-hour daylight with soft golden illumination.
+UI: compass, health/focus/stamina bars, item slots and rune count.
+Avoid: vertical crop, giant boss, generic gold palace, excessive magic, readable modern logos, watermark.`,
+  'honor-of-kings': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve Times Square's broad horizontal street canyon, curved left billboard, central avenue lane, dense façades and pedestrian scale.
+Primary request: transform the scene into a polished Honor of Kings in-engine MOBA battlefield. Keep the urban layout but turn it into a bright Chinese-fantasy city lane: billboards become magical team banners and ability panels, the curved façade becomes an arena wall, traffic becomes lane props and merchant carts, and the avenue becomes a readable three-lane route. Place an original agile swordsman hero near the lower center with two blue allied minions and one cyan-gold defense turret.
+Style/medium: crisp Chinese-fantasy mobile 3D, high readability, clean faceted forms, warm amber architecture with cyan energy.
+Composition/framing: exact 16:9 landscape, wide horizontal third-person gameplay viewport.
+Lighting/mood: clear late afternoon, lively and competitive.
+UI: compact minimap, health bar, joystick, ability buttons and objective indicator.
+Avoid: vertical image, splash art, giant hero portrait, excessive VFX, realistic gunplay, watermark.`,
+  'animal-crossing': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide Times Square street canyon, curved billboard, colorful vertical signs, center avenue perspective, yellow taxis and friendly human scale.
+Primary request: transform the photograph into an authentic Animal Crossing: New Horizons landscape gameplay screenshot. Recast Times Square as a cheerful island town plaza: signs become rounded shop façades, taxis become tiny yellow delivery carts, skyscrapers become soft toy-like buildings, and the avenue becomes a clean patterned path. Place a human avatar near the lower center with a shopping bag, friendly animal villagers, flowers, benches, fruit baskets and a market stall.
+Style/medium: cute rounded low-poly Nintendo Switch 3D, miniature diorama scale, soft clean materials and pastel accents.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay camera.
+Lighting/mood: clear blue daytime, calm and playful.
+UI: small time/date, minimap and one contextual prompt only.
+Avoid: vertical image, combat, realistic crowds, photoreal skyscrapers, heavy HUD, watermark.`,
+  minecraft: `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide street canyon, left curved billboard mass, tall buildings, centered avenue, crosswalks, taxis and sidewalk rhythm.
+Primary request: transform the photograph into an authentic Minecraft survival-mode landscape gameplay screenshot. Rebuild the entire scene from crisp cubic voxel blocks: the curved billboard becomes a block-built display wall, skyscrapers become stone, glass and concrete towers, yellow taxis become blocky vehicles, and the avenue becomes a broad road with villagers and market booths. Use a first-person viewpoint with a diamond pickaxe at lower right.
+Style/medium: vanilla Minecraft rendering, square voxels, 16x pixel textures and hard cubic silhouettes.
+Composition/framing: exact 16:9 landscape, wide first-person gameplay viewport.
+Lighting/mood: bright daytime with clear blue sky.
+UI: crosshair, hearts, hunger, XP bar and 9-slot hotbar.
+Avoid: vertical crop, rounded forms, realistic people, cinematic ray tracing, readable modern logos, watermark.`,
+  fortnite: `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide Times Square canyon, curved LED façade, dense tower walls, central street perspective, sidewalks, taxis and crowd scale.
+Primary request: transform the photograph into an authentic Fortnite Battle Royale landscape third-person gameplay screenshot. Turn Times Square into a memorable urban POI while keeping its landmark arrangement: billboards become colorful in-game panels, taxis become stylized vehicles, storefronts become loot shops, and the road becomes a combat-ready plaza. Place one original player avatar from behind near the lower center holding a colorful harvesting tool. Add a glowing chest, loot items, restrained ramps/build pieces and distant players.
+Style/medium: bright stylized in-engine PBR, clean faceted forms, saturated balanced colors and crisp silhouettes.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay camera.
+Lighting/mood: sunny late morning, energetic but uncluttered.
+UI: minimap, health/shield bars, inventory slots and crosshair.
+Avoid: vertical image, key art, giant hero portrait, realistic military scene, excessive explosions, watermark.`,
+  'gta-v': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the broad Times Square street canyon, giant curved LED façade, dense vertical signs and towers, centered road perspective, yellow taxi foreground, sidewalks and traffic scale.
+Primary request: transform the photograph into an authentic Grand Theft Auto V third-person open-world gameplay screenshot. Keep the location as a modern Manhattan entertainment district with believable traffic simulation. Preserve the horizontal composition, translate signage into fictional unreadable ads, add pedestrians, taxis, buses and an unnamed adult playable character from behind near the lower center.
+Style/medium: polished realistic open-world engine rendering, crisp architecture, believable vehicle materials and natural pedestrian simulation.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay camera.
+Lighting/mood: clear winter afternoon with clean shadows.
+UI: circular minimap, small cash/ammo indicators and subtle objective marker.
+Avoid: vertical crop, movie poster, giant character, explosions, title card, neon cyberpunk grade, watermark.`,
+  'cyberpunk-2077': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide street canyon, curved billboard mass, skyscraper walls, central avenue vanishing point, traffic lanes and layered signage.
+Primary request: transform the photograph into an authentic Cyberpunk 2077 first-person Night City gameplay screenshot. Keep the Times Square geometry but make it a rainy megacity district: the curved billboard becomes a luminous holographic façade, vertical signs become abstract neon glyphs, taxis become autonomous vehicles, and pedestrians become cybernetic crowds. Show restrained cybernetic forearms and a scanner at the lower edge aimed toward the avenue.
+Style/medium: high-detail in-engine cyberpunk realism, wet reflective asphalt, dark industrial materials, cyan-magenta-red neon against amber windows.
+Composition/framing: exact 16:9 landscape, wide first-person gameplay viewport.
+Lighting/mood: blue-hour rain, humid haze and electric density.
+UI: subtle minimap, health bar, objective distance and scanner readout.
+Avoid: vertical image, clean utopia, fantasy castle, giant character portrait, unreadable clutter, watermark.`,
+  'red-dead-redemption-2': `Use case: historical-scene
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide street canyon, left curved façade mass, central avenue perspective, dense building rhythm, broad sidewalk and foreground vehicle placement.
+Primary request: transform the photograph into an authentic Red Dead Redemption 2 third-person gameplay screenshot set in an imagined 1899 Saint Denis entertainment district. Translate the curved LED façade into a grand illuminated theater, skyscrapers into period brick and iron towers, billboards into painted posters without readable text, and yellow taxis into horse-drawn cabs. Place one weathered cowboy seen from behind near the lower center with a saddled horse and carriage nearby.
+Style/medium: richly detailed realistic late-19th-century open-world rendering, tactile brick, cast iron, wet cobblestone, brass lamps, leather and wood.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay camera.
+Lighting/mood: amber gaslight at dusk after rain, smoky distance.
+UI: period-style circular minimap, health/stamina cores and small ammo indicator.
+Avoid: vertical crop, movie poster, giant gunfight, sepia-only treatment, modern glass skyscrapers, watermark.`,
+  'hogwarts-legacy': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the broad Times Square canyon, curved illuminated façade, tall tower rhythm, central avenue perspective, sidewalks and human scale.
+Primary request: transform the photograph into an authentic Hogwarts Legacy third-person open-world gameplay screenshot. Reimagine the city as a magical wizarding district: the giant screen becomes an enchanted moving mural, signs become floating rune banners, skyscrapers become stone-and-brick wizard towers, taxis become enchanted carriages, and the avenue becomes a magical market. Place a young wizard student small from behind near the lower center holding a wand, with robed pedestrians and owls.
+Style/medium: richly detailed realistic fantasy engine rendering, carved stone, aged brick, dark timber, brass and embroidered robes.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay camera.
+Lighting/mood: cool clear afternoon with warm shop lights.
+UI: minimap, health bar, spell wheel and subtle quest marker.
+Avoid: vertical crop, giant castle replacing the city, oversized character, battle scene, excessive purple glow, watermark.`,
+  'super-mario-odyssey': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide street canyon, curved billboard, vertical building blocks, centered avenue, crosswalks and yellow-car color accent.
+Primary request: rebuild the scene as a joyful globe-trotting 3D platforming level called Neon Avenue Kingdom, using the bright playful visual language associated with Super Mario Odyssey without copying a named character. Keep the horizontal composition and transform skyscrapers into rounded platforming buildings, the curved billboard into a bouncing display, taxis into toy vehicles, and the avenue into a route of platforms. Add a tiny original explorer, floating gold coins, spring pads, climbable signs and friendly round creatures.
+Style/medium: premium family-friendly console 3D platformer render, saturated colors, rounded toy-like forms, soft ambient occlusion and bold silhouettes.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay viewport.
+Lighting/mood: clear sunny daytime, energetic and joyful.
+UI: minimal three-heart life meter, coin counter and small objective icon.
+Avoid: vertical image, character close-up, photorealism, dark realism, cluttered UI, readable real-world logos, watermark.`,
+  'pokemon-scarlet-violet': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the broad Times Square street canyon, curved left display, tall buildings, center avenue perspective, sidewalks, yellow taxis and pedestrian scale.
+Primary request: transform the photograph into an authentic Pokémon Scarlet and Violet open-world landscape gameplay screenshot. Recast the district as a lively city Gym and academy neighborhood: billboards become creature-themed displays, taxis become colorful vehicles, storefronts become battle-item shops and the avenue becomes a walkable route. Place an original young trainer near the lower center with a small yellow electric mouse companion, friendly creatures, student NPCs and flower planters.
+Style/medium: clean anime-shaded 3D game-engine rendering, simplified readable forms, soft cel shading, vivid natural colors and polished console materials.
+Composition/framing: exact 16:9 landscape, wide third-person gameplay camera.
+Lighting/mood: bright clear afternoon, adventurous and welcoming.
+UI: restrained party icons, minimap and compact interaction prompt.
+Avoid: vertical crop, giant mascot portrait, battle key art, photorealism, empty field, oversized HUD, watermark.`,
+  'resident-evil-4': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide Times Square street canyon, curved left façade, tall buildings, central avenue perspective, crosswalks, sidewalks and yellow taxi placement.
+Primary request: transform the photograph into an authentic Resident Evil 4 Remake over-the-shoulder survival-horror gameplay screenshot. Keep the architecture recognizable but abandoned and barricaded: billboards become flickering blank panels, traffic becomes overturned cars, storefronts become shuttered, and the avenue fills with damp fog. Place one field agent seen from behind near the lower center with flashlight and pistol. Add distant hostile silhouettes without gore.
+Style/medium: photoreal high-end survival-horror engine rendering, wet asphalt, broken glass, rust, restrained desaturation and environmental storytelling.
+Composition/framing: exact 16:9 landscape, wide over-the-shoulder gameplay camera.
+Lighting/mood: cold blue-gray dusk, sparse amber practical lights and low fog.
+UI: compact health, ammo, crosshair and interaction marker.
+Avoid: vertical image, gore, giant monster, action poster, unreadably dark architecture, watermark.`,
+  'silent-hill-2': `Use case: style-transfer
+Asset type: 16:9 landscape game screenshot
+Input image: Preserve the wide horizontal Times Square street canyon, curved left billboard mass, dense tower silhouettes, centered avenue, sidewalks and yellow taxi accent.
+Primary request: transform the photograph into an authentic Silent Hill 2 Remake over-the-shoulder psychological-horror gameplay screenshot. Keep the city geometry recognizable but empty, rain-stained and swallowed by pale fog: screens flicker with indistinct gray light, signs lose readable text, taxis are abandoned, storefronts are sealed, and the avenue fades into mist. Place one lonely man in a weathered green field jacket seen from behind near the lower center holding a flashlight low. No visible monster.
+Style/medium: high-end realistic survival-horror rendering, wet reflective asphalt, rust, peeling paint, volumetric fog, restrained grain and desaturated color.
+Composition/framing: exact 16:9 landscape, wide over-the-shoulder gameplay viewport.
+Lighting/mood: cold gray dawn, silence and melancholy.
+UI: extremely minimal radio/health indicator and interaction dot.
+Avoid: vertical crop, creature reveal, blood, jump scare, character close-up, generic haunted house, watermark.`,
+};
+
 const galleryGames = games.map((game) => ({
   ...game,
   variantImage: kyotoImageById[game.id],
   variantPrompt: kyotoPromptById[game.id],
+  timesSquareImage: timesSquareImageById[game.id],
+  timesSquarePrompt: timesSquarePromptById[game.id],
 }));
 
 function CopyButton({ text, label = '复制提示词' }: { text: string; label?: string }) {
@@ -383,18 +544,21 @@ function CopyButton({ text, label = '复制提示词' }: { text: string; label?:
 
 type ActiveSelection = {
   game: GameStyle;
-  variant: 'city' | 'kyoto';
+  variant: 'city' | 'kyoto' | 'timesSquare';
 };
 
 function selectedImage(selection: ActiveSelection) {
+  if (selection.variant === 'timesSquare') return selection.game.timesSquareImage ?? selection.game.image;
   return selection.variant === 'kyoto' ? selection.game.variantImage ?? selection.game.image : selection.game.image;
 }
 
 function selectedPrompt(selection: ActiveSelection) {
+  if (selection.variant === 'timesSquare') return selection.game.timesSquarePrompt ?? selection.game.prompt;
   return selection.variant === 'kyoto' ? selection.game.variantPrompt ?? selection.game.prompt : selection.game.prompt;
 }
 
 function selectedSource(selection: ActiveSelection) {
+  if (selection.variant === 'timesSquare') return timesSquareSourceImage;
   return selection.variant === 'kyoto' ? kyotoSourceImage : sourceImage;
 }
 
@@ -417,23 +581,34 @@ export default function Home() {
           <p className="eyebrow">GAME STYLE TRANSFER ATLAS</p>
           <h1>同一座城市，进入不同游戏。</h1>
         </div>
-        <p className="intro">以静安寺为统一参考，快速比较游戏实机风格、提示词和 Skill 结构。</p>
+        <p className="intro">用三套城市参考图，快速比较 15 款游戏的实机风格、横竖构图、提示词和 Skill 结构。</p>
       </header>
 
       <section className="source-strip" aria-label="参考原图">
-        <img src={thumbnail(sourceImage)} alt="上海静安寺参考原图" />
-        <div>
-          <span>统一参考 01</span><strong>上海 · 静安寺</strong>
-          <p>保留金顶、三门立面、前景阶梯市集和后方弧顶高楼。</p>
+        <div className="source-item">
+          <img src={thumbnail(sourceImage)} alt="上海静安寺参考原图" />
+          <div>
+            <span>统一参考 01</span><strong>上海 · 静安寺</strong>
+            <p>金顶、三门立面、阶梯市集和弧顶高楼。</p>
+          </div>
         </div>
-        <img src={thumbnail(kyotoSourceImage)} alt="京都古街参考原图" />
-        <div>
-          <span>统一参考 02</span><strong>京都 · 古街五重塔</strong>
-          <p>保留木构街巷、中心五重塔、窄石路和两侧屋檐。</p>
+        <div className="source-item">
+          <img src={thumbnail(kyotoSourceImage)} alt="京都古街参考原图" />
+          <div>
+            <span>统一参考 02</span><strong>京都 · 古街五重塔</strong>
+            <p>木构街巷、中心五重塔、窄石路和两侧屋檐。</p>
+          </div>
+        </div>
+        <div className="source-item">
+          <img src={thumbnail(timesSquareSourceImage)} alt="纽约时代广场参考原图" />
+          <div>
+            <span>统一参考 03</span><strong>纽约 · 时代广场</strong>
+            <p>横向街谷、曲面屏幕、摩天楼、车流和人行道。</p>
+          </div>
         </div>
       </section>
 
-      <div className="count-line"><span>{galleryGames.length} 款游戏 · 30 张示例</span><span>点击任意图片查看详情</span></div>
+      <div className="count-line"><span>{galleryGames.length} 款游戏 · 45 张示例</span><span>点击任意图片查看详情</span></div>
       <section className="gallery" aria-label="游戏风格图库">
         {galleryGames.map((game, index) => (
           <article className="card" key={game.id}>
@@ -444,11 +619,14 @@ export default function Home() {
               <button className="image-button" type="button" onClick={() => setActive({ game, variant: 'kyoto' })} aria-label={`查看 ${game.title} 的京都古街版本`}>
                 <img src={thumbnail(game.variantImage ?? game.image)} alt={`${game.title} 风格的京都古街`} loading="lazy" />
               </button>
+              <button className="image-button landscape" type="button" onClick={() => setActive({ game, variant: 'timesSquare' })} aria-label={`查看 ${game.title} 的纽约时代广场版本`}>
+                <img src={thumbnail(game.timesSquareImage ?? game.image)} alt={`${game.title} 风格的纽约时代广场`} loading="lazy" />
+              </button>
             </div>
-            <div className="variant-labels"><span>上海 · 静安寺</span><span>京都 · 五重塔</span></div>
+            <div className="variant-labels"><span>上海 · 静安寺</span><span>京都 · 五重塔</span><span className="wide-label">纽约 · 时代广场 · 16:9</span></div>
             <div className="card-meta">
               <div><h2>{game.title}</h2><p>{game.subtitle}</p></div>
-              <div className="card-actions"><CopyButton text={game.prompt} /><CopyButton text={game.variantPrompt ?? game.prompt} label="京都 Prompt" /></div>
+              <div className="card-actions"><CopyButton text={game.prompt} /><CopyButton text={game.variantPrompt ?? game.prompt} label="京都 Prompt" /><CopyButton text={game.timesSquarePrompt ?? game.prompt} label="纽约 Prompt" /></div>
             </div>
           </article>
         ))}
@@ -458,12 +636,13 @@ export default function Home() {
         <div className="modal-backdrop" role="presentation" onMouseDown={() => setActive(null)}>
           <section className="modal" role="dialog" aria-modal="true" aria-label={`${active.game.title} 详情`} onMouseDown={(event) => event.stopPropagation()}>
             <button className="close-button" type="button" onClick={() => setActive(null)} aria-label="关闭详情">×</button>
-            <div className="modal-visual"><img src={selectedImage(active)} alt={`${active.game.title} 风格转换大图`} /></div>
+            <div className={`modal-visual ${active.variant === 'timesSquare' ? 'landscape' : ''}`}><img src={selectedImage(active)} alt={`${active.game.title} 风格转换大图`} /></div>
             <div className="modal-content">
               <p className="eyebrow">{active.game.skill}</p><h2>{active.game.title}</h2><p className="modal-subtitle">{active.game.subtitle}</p>
               <div className="variant-switch" role="tablist" aria-label="选择转换版本">
                 <button className={active.variant === 'city' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'city'} onClick={() => setActive({ ...active, variant: 'city' })}>上海 · 静安寺</button>
                 <button className={active.variant === 'kyoto' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'kyoto'} onClick={() => setActive({ ...active, variant: 'kyoto' })}>京都 · 五重塔</button>
+                <button className={active.variant === 'timesSquare' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'timesSquare'} onClick={() => setActive({ ...active, variant: 'timesSquare' })}>纽约 · 时代广场 · 16:9</button>
               </div>
               <div className="compare-row">
                 <figure><img src={thumbnail(selectedSource(active))} alt="当前参考原图" /><figcaption>当前参考原图</figcaption></figure>
