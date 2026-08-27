@@ -124,7 +124,7 @@ Avoid: key art, giant hero portrait, realistic military look, excessive effects,
   },
   {
     id: 'gta-v',
-    title: 'Grand Theft Auto V',
+    title: 'GTA 5 · Grand Theft Auto V',
     subtitle: '开放城市 · 写实交通 · 第三人称任务',
     image: 'images/gta-v.png',
     skill: 'gta-v-screenshot-transfer / prompt prototype',
