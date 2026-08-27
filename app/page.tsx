@@ -10,9 +10,12 @@ type GameStyle = {
   prompt: string;
   skill: string;
   structure?: string[];
+  variantImage?: string;
+  variantPrompt?: string;
 };
 
 const sourceImage = 'images/jingan-source.png';
+const kyotoSourceImage = 'images/kyoto-source.png';
 const thumbnail = (path: string) => path.replace('images/', 'images/thumbs/').replace('.png', '.webp');
 
 const defaultStructure = [
@@ -226,6 +229,148 @@ Avoid: creature reveal, blood, jump scare, character close-up, generic haunted h
   },
 ];
 
+const kyotoImageById: Record<string, string> = {
+  zelda: 'images/kyoto-zelda.png',
+  'dark-souls-3': 'images/kyoto-dark-souls-3.png',
+  'elden-ring': 'images/kyoto-elden-ring.png',
+  'honor-of-kings': 'images/kyoto-honor-of-kings.png',
+  'animal-crossing': 'images/kyoto-animal-crossing.png',
+  minecraft: 'images/kyoto-minecraft.png',
+  fortnite: 'images/kyoto-fortnite.png',
+  'gta-v': 'images/kyoto-gta-v.png',
+  'cyberpunk-2077': 'images/kyoto-cyberpunk-2077.png',
+  'red-dead-redemption-2': 'images/kyoto-red-dead-redemption-2.png',
+  'hogwarts-legacy': 'images/kyoto-hogwarts-legacy.png',
+  'super-mario-odyssey': 'images/kyoto-super-mario-odyssey.png',
+  'pokemon-scarlet-violet': 'images/kyoto-pokemon-scarlet-violet.png',
+  'resident-evil-4': 'images/kyoto-resident-evil-4.png',
+  'silent-hill-2': 'images/kyoto-silent-hill-2.png',
+};
+
+const kyotoPromptById: Record<string, string> = {
+  zelda: `Use case: style-transfer
+Input image: Image 1 is the edit target and composition reference. Preserve the Kyoto historic lane, dark timber machiya on both sides, central three-story pagoda, narrow stone path, distant greenery and overcast spacious sky.
+Primary request: transform this real Kyoto street into an authentic Nintendo Switch The Legend of Zelda: Tears of the Kingdom gameplay screenshot. Convert the timber lane into a Hyrule village passage with hand-built wood, stone and cloth while preserving the pagoda silhouette and perspective. Place Link small and seen from behind near lower center, walking uphill with a wooden shield. Add subtle sky islands, lanterns, grass and a small stable detail.
+Style/medium: clean cel-shaded 3D game-engine rendering, unified color blocks, crisp silhouettes, simplified materials and soft low-contrast shadows.
+Composition/framing: vertical 4:5 third-person gameplay capture.
+UI: restrained hearts, stamina wheel, minimap and item indicator.
+Avoid: anime poster, photoreal city, oversized character, excessive fantasy effects, watermark.`,
+  'dark-souls-3': `Use case: style-transfer
+Input image: Preserve the Kyoto lane, dark timber machiya, central pagoda, narrow stone route and rooflines.
+Primary request: transform the street into an authentic Dark Souls III third-person gameplay screenshot. Make the pagoda a blackened Lothric shrine with faint ember seams; make the houses damp Gothic-Asian masonry and warped wood. Replace modern details with ash, broken carts, torn banners, hollow pilgrims and one armored Ashen One from behind approaching the shrine. Add a small bonfire.
+Style/medium: grounded dark medieval engine rendering, tactile stone and wood, charcoal, tarnished bronze and ember orange.
+Composition/framing: vertical 4:5 third-person gameplay capture with the pagoda centered.
+Lighting/mood: cold dusk, wet stone and sparse firelight.
+UI: health, focus, stamina, item slot and soul count.
+Avoid: boss key art, oversized knight, excessive flames, generic castle, watermark.`,
+  'elden-ring': `Use case: style-transfer
+Input image: Preserve the Kyoto timber lane, centered three-story pagoda, narrow stone path, layered roofs and distant greenery.
+Primary request: transform the scene into an authentic Elden Ring third-person gameplay screenshot. Recast the pagoda as a sacred sanctuary in a ruined capital and keep its tiered silhouette. Add weathered medieval timber-and-stone houses, a lone Tarnished from behind at lower center, a subtle Site of Grace and windblown golden leaves.
+Style/medium: detailed but readable open-world 3D, pale stone, antique bronze, muted greens and restrained gold.
+Composition/framing: vertical 4:5 gameplay capture.
+Lighting/mood: pale overcast afternoon, solemn wonder.
+UI: compass, health/focus/stamina bars, item slots and rune count.
+Avoid: giant boss, golden palace, excessive magic, generic castle, watermark.`,
+  'honor-of-kings': `Use case: style-transfer
+Input image: Preserve the Kyoto wooden lane, central three-story pagoda, narrow stone route and symmetrical house fronts.
+Primary request: transform the street into a polished Honor of Kings in-engine MOBA battlefield. Recast the pagoda as a gold-and-cyan high-ground base, the lane as a readable route, and place an original agile swordsman hero from behind with two blue allied minions and one defense turret.
+Style/medium: bright Chinese-fantasy mobile 3D, crisp silhouettes, saturated gold, jade and cyan energy.
+Composition/framing: vertical 4:5 third-person gameplay capture.
+Lighting/mood: clean daylight with warm lantern accents.
+UI: compact minimap, joystick, health bar and circular skill buttons.
+Avoid: giant hero portrait, excessive VFX, modern cars, splash art, watermark.`,
+  'animal-crossing': `Use case: style-transfer
+Input image: Preserve the Kyoto timber machiya, central three-story pagoda, narrow pale stone path, low roofs and greenery.
+Primary request: transform the scene into an authentic Animal Crossing: New Horizons gameplay screenshot. Recast the pagoda as a rounded island cultural center and the lane as a tiny diorama neighborhood. Add a human avatar from behind with a shopping bag, friendly animal villagers, flowers, benches, fruit baskets and lanterns.
+Style/medium: cute rounded low-poly Nintendo Switch 3D, miniature scale, soft clean materials and gentle colors.
+Composition/framing: vertical 4:5 third-person gameplay capture.
+Lighting/mood: calm cloudy afternoon, honey wood, cream stone and mint foliage.
+UI: small time/date and contextual prompt.
+Avoid: combat, dark fantasy, realistic crowds, giant characters, watermark.`,
+  minecraft: `Use case: style-transfer
+Input image: Preserve the Kyoto timber machiya, central three-story pagoda, narrow stone lane, layered eaves and greenery.
+Primary request: transform the scene into an authentic Minecraft survival-mode gameplay screenshot. Rebuild every building, pagoda tier, roof tile, path, lantern and tree from crisp cubic voxel blocks. Turn the lane into a village trading route with blocky villagers, flower planters, chests and market tables. First-person camera from lower center with a diamond pickaxe at lower right and crosshair aimed at the pagoda.
+Style/medium: vanilla Minecraft engine rendering, square voxels, 16x pixel textures and hard cubic silhouettes.
+Composition/framing: vertical 4:5 gameplay capture.
+UI: hearts, hunger, XP bar, crosshair and 9-slot hotbar.
+Avoid: rounded geometry, photoreal textures, ray tracing, generic fantasy castle, watermark.`,
+  fortnite: `Use case: style-transfer
+Input image: Preserve the Kyoto timber houses, central three-story pagoda, narrow stone path and layered eaves.
+Primary request: transform the lane into an authentic Fortnite Battle Royale gameplay screenshot. Rebuild the pagoda as a bright named POI, add colorful market buildings, climbable roofs, ramps and a few wooden build pieces. Place an original avatar from behind at lower center with a harvesting tool, a glowing chest, loot items, distant players and a glider.
+Style/medium: bright stylized in-engine PBR, faceted surfaces, saturated clean colors and readable geometry.
+Composition/framing: vertical 4:5 third-person gameplay capture.
+UI: minimap, health/shield bars, inventory and crosshair.
+Avoid: key art, giant hero, military realism, excessive effects, watermark.`,
+  'gta-v': `Use case: style-transfer
+Input image: Preserve the Kyoto timber machiya, central pagoda, narrow wet lane and layered roofs.
+Primary request: transform this historic neighborhood into an authentic Grand Theft Auto V third-person open-world gameplay screenshot. Keep the pagoda as a real cultural landmark. Add pedestrians, parked compact cars, delivery scooters, storefront clutter and a playable adult from behind walking toward the pagoda.
+Style/medium: polished realistic open-world engine rendering, believable urban materials and crisp simulation detail.
+Composition/framing: vertical 4:5 human-height gameplay camera.
+Lighting/mood: warm late afternoon after rain.
+UI: circular minimap, small cash/ammo indicators and subtle objective marker.
+Avoid: explosions, American skyline, neon cyberpunk, cinematic poster, watermark.`,
+  'cyberpunk-2077': `Use case: style-transfer
+Input image: Preserve the Kyoto timber lane, central pagoda, narrow stone route and tight roof perspective.
+Primary request: transform the neighborhood into an authentic Cyberpunk 2077 first-person Night City gameplay screenshot. Keep the pagoda as an old sacred landmark inside a neon district. Add wet pavement, overhead cables, steam, cybernetic pedestrians, futuristic scooters and abstract holographic wayfinding. Show restrained cybernetic forearms and a scanner at the bottom edge.
+Style/medium: high-detail in-engine cyberpunk realism, rain, dark industrial materials, lantern gold against cyan, magenta and red neon.
+Composition/framing: vertical 4:5 first-person gameplay capture.
+Lighting/mood: rainy blue-hour night, humid haze and lived-in density.
+UI: subtle minimap, health bar, objective distance and scanner readout.
+Avoid: giant billboards, clean utopia, fantasy castle, character portrait, watermark.`,
+  'red-dead-redemption-2': `Use case: historical-scene
+Input image: Preserve the Kyoto timber houses, central pagoda, narrow lane, layered eaves and distant greenery.
+Primary request: transform the neighborhood into an authentic Red Dead Redemption 2 third-person gameplay screenshot set in an imagined 1899 immigrant quarter. Keep the pagoda as a period community shrine. Replace modern details with horse carts, handcarts, canvas awnings, gas lamps, period pedestrians and muddy stone. Place a weathered cowboy from behind at lower center with a saddled horse at the side.
+Style/medium: realistic open-world rendering, late-19th-century wood, stone, brass and leather, grounded scale.
+Composition/framing: vertical 4:5 third-person gameplay capture.
+Lighting/mood: amber sunset after rain, long shadows and dusty haze.
+UI: circular minimap, health/stamina cores and ammo indicator.
+Avoid: movie poster, giant gunfight, modern vehicles, fantasy castle, watermark.`,
+  'hogwarts-legacy': `Use case: style-transfer
+Input image: Preserve the Kyoto timber machiya, central pagoda, narrow stone route, layered eaves and overcast sky.
+Primary request: transform the lane into an authentic Hogwarts Legacy third-person open-world gameplay screenshot. Reimagine the pagoda as an East Asian wing of a wizarding academy and the houses as magical shops. Place a young wizard student from behind at lower center with a wand, robed students, floating lanterns, an owl and restrained magical particles.
+Style/medium: realistic fantasy engine rendering, carved wood, stone, gilded trim and embroidered robes.
+Composition/framing: vertical 4:5 third-person gameplay capture.
+Lighting/mood: cool misty morning with warm lantern highlights.
+UI: minimap, health bar, spell wheel and quest marker.
+Avoid: giant castle, oversized character, battle scene, excessive purple glow, watermark.`,
+  'super-mario-odyssey': `Use case: style-transfer
+Input image: Preserve the Kyoto timber lane, central pagoda, narrow stone path, layered eaves and greenery.
+Primary request: rebuild the scene as a joyful globe-trotting 3D platforming level called Pagoda District, using the bright playful language associated with Super Mario Odyssey without copying a named character. Keep the pagoda silhouette and use rounded game geometry. Add a tiny original explorer, floating gold coins, spring pads, friendly round creatures, climbable roof ornaments and moving platforms.
+Style/medium: premium family-friendly console 3D platformer render, saturated colors, rounded toy-like forms and soft ambient occlusion.
+Composition/framing: vertical 4:5 third-person gameplay capture.
+UI: minimal three-heart life meter and coin counter.
+Avoid: character close-up, photorealism, generic field replacing the city, text-heavy layout, watermark.`,
+  'pokemon-scarlet-violet': `Use case: style-transfer
+Input image: Preserve the Kyoto timber machiya, central pagoda, narrow stone lane, layered eaves and greenery.
+Primary request: transform the street into an authentic Pokémon Scarlet and Violet open-world gameplay screenshot. Recast the pagoda as a city Gym and academy shrine. Place an original trainer from behind at lower center with a small yellow electric mouse companion, friendly creatures, student NPCs, flower stalls and a Poké Ball interaction prompt.
+Style/medium: clean anime-shaded 3D engine rendering, simple readable forms, soft cel shading and vivid natural colors.
+Composition/framing: vertical 4:5 third-person gameplay capture.
+UI: party icons, minimap and compact interaction prompt.
+Avoid: giant mascot portrait, battle key art, photorealism, empty field, watermark.`,
+  'resident-evil-4': `Use case: style-transfer
+Input image: Preserve the Kyoto timber houses, central pagoda, narrow stone route and layered roofs.
+Primary request: transform the neighborhood into an authentic Resident Evil 4 Remake over-the-shoulder survival-horror gameplay screenshot. Reimagine the pagoda as an isolated cult shrine. Weather the houses, empty the lane and add torn awnings, wet stone, barricades, crates and distant hostile villagers. Place one blond field agent from behind in the lower center with flashlight and pistol.
+Style/medium: photoreal survival-horror engine rendering, damp materials, restrained desaturation and environmental storytelling.
+Composition/framing: vertical 4:5 over-the-shoulder gameplay capture.
+Lighting/mood: cold overcast dusk, low fog and sparse amber windows.
+UI: compact health, ammo, crosshair and interaction marker.
+Avoid: gore, giant monster, action key art, unreadably dark image, watermark.`,
+  'silent-hill-2': `Use case: style-transfer
+Input image: Preserve the Kyoto timber machiya, central three-story pagoda, narrow stone lane, layered eaves and pale sky.
+Primary request: transform the historic lane into an authentic Silent Hill 2 Remake over-the-shoulder psychological-horror gameplay screenshot. Keep the pagoda and street recognizable but abandoned, rain-stained and swallowed by pale fog. Leave collapsed awnings, wet wood, fallen leaves, a handcart and weak window lights. Place one lonely man in a green field jacket from behind at lower center with a lowered flashlight. No visible monster.
+Style/medium: realistic survival-horror engine rendering, wet stone and wood, rust, peeling paint, volumetric fog and desaturated color.
+Composition/framing: vertical 4:5 gameplay capture.
+Lighting/mood: cold grey dawn, silence and melancholy.
+UI: minimal radio/health indicator and interaction dot.
+Avoid: monster reveal, blood, jump scare, character close-up, watermark.`,
+};
+
+const galleryGames = games.map((game) => ({
+  ...game,
+  variantImage: kyotoImageById[game.id],
+  variantPrompt: kyotoPromptById[game.id],
+}));
+
 function CopyButton({ text, label = '复制提示词' }: { text: string; label?: string }) {
   const [copied, setCopied] = useState(false);
   async function copy() {
@@ -236,8 +381,25 @@ function CopyButton({ text, label = '复制提示词' }: { text: string; label?:
   return <button className="copy-button" onClick={copy} type="button">{copied ? '已复制' : label}</button>;
 }
 
+type ActiveSelection = {
+  game: GameStyle;
+  variant: 'city' | 'kyoto';
+};
+
+function selectedImage(selection: ActiveSelection) {
+  return selection.variant === 'kyoto' ? selection.game.variantImage ?? selection.game.image : selection.game.image;
+}
+
+function selectedPrompt(selection: ActiveSelection) {
+  return selection.variant === 'kyoto' ? selection.game.variantPrompt ?? selection.game.prompt : selection.game.prompt;
+}
+
+function selectedSource(selection: ActiveSelection) {
+  return selection.variant === 'kyoto' ? kyotoSourceImage : sourceImage;
+}
+
 export default function Home() {
-  const [active, setActive] = useState<GameStyle | null>(null);
+  const [active, setActive] = useState<ActiveSelection | null>(null);
   useEffect(() => {
     function close(event: KeyboardEvent) { if (event.key === 'Escape') setActive(null); }
     window.addEventListener('keydown', close);
@@ -261,39 +423,57 @@ export default function Home() {
       <section className="source-strip" aria-label="参考原图">
         <img src={thumbnail(sourceImage)} alt="上海静安寺参考原图" />
         <div>
-          <span>统一参考</span><strong>上海 · 静安寺</strong>
+          <span>统一参考 01</span><strong>上海 · 静安寺</strong>
           <p>保留金顶、三门立面、前景阶梯市集和后方弧顶高楼。</p>
+        </div>
+        <img src={thumbnail(kyotoSourceImage)} alt="京都古街参考原图" />
+        <div>
+          <span>统一参考 02</span><strong>京都 · 古街五重塔</strong>
+          <p>保留木构街巷、中心五重塔、窄石路和两侧屋檐。</p>
         </div>
       </section>
 
-      <div className="count-line"><span>{games.length} 个已完成风格</span><span>点击图片查看详情</span></div>
+      <div className="count-line"><span>{galleryGames.length} 款游戏 · 30 张示例</span><span>点击任意图片查看详情</span></div>
       <section className="gallery" aria-label="游戏风格图库">
-        {games.map((game, index) => (
+        {galleryGames.map((game, index) => (
           <article className="card" key={game.id}>
-            <button className="image-button" type="button" onClick={() => setActive(game)} aria-label={`查看 ${game.title} 详情`}>
-              <img src={thumbnail(game.image)} alt={`${game.title} 风格的静安寺`} loading={index > 2 ? 'lazy' : 'eager'} />
-            </button>
-            <div className="card-meta"><div><h2>{game.title}</h2><p>{game.subtitle}</p></div><CopyButton text={game.prompt} /></div>
+            <div className="card-visuals">
+              <button className="image-button" type="button" onClick={() => setActive({ game, variant: 'city' })} aria-label={`查看 ${game.title} 的上海静安寺版本`}>
+                <img src={thumbnail(game.image)} alt={`${game.title} 风格的上海静安寺`} loading={index > 2 ? 'lazy' : 'eager'} />
+              </button>
+              <button className="image-button" type="button" onClick={() => setActive({ game, variant: 'kyoto' })} aria-label={`查看 ${game.title} 的京都古街版本`}>
+                <img src={thumbnail(game.variantImage ?? game.image)} alt={`${game.title} 风格的京都古街`} loading="lazy" />
+              </button>
+            </div>
+            <div className="variant-labels"><span>上海 · 静安寺</span><span>京都 · 五重塔</span></div>
+            <div className="card-meta">
+              <div><h2>{game.title}</h2><p>{game.subtitle}</p></div>
+              <div className="card-actions"><CopyButton text={game.prompt} /><CopyButton text={game.variantPrompt ?? game.prompt} label="京都 Prompt" /></div>
+            </div>
           </article>
         ))}
       </section>
 
       {active && (
         <div className="modal-backdrop" role="presentation" onMouseDown={() => setActive(null)}>
-          <section className="modal" role="dialog" aria-modal="true" aria-label={`${active.title} 详情`} onMouseDown={(event) => event.stopPropagation()}>
+          <section className="modal" role="dialog" aria-modal="true" aria-label={`${active.game.title} 详情`} onMouseDown={(event) => event.stopPropagation()}>
             <button className="close-button" type="button" onClick={() => setActive(null)} aria-label="关闭详情">×</button>
-            <div className="modal-visual"><img src={active.image} alt={`${active.title} 风格静安寺大图`} /></div>
+            <div className="modal-visual"><img src={selectedImage(active)} alt={`${active.game.title} 风格转换大图`} /></div>
             <div className="modal-content">
-              <p className="eyebrow">{active.skill}</p><h2>{active.title}</h2><p className="modal-subtitle">{active.subtitle}</p>
-              <div className="compare-row">
-                <figure><img src={thumbnail(sourceImage)} alt="参考原图" /><figcaption>参考原图</figcaption></figure>
-                <figure><img src={thumbnail(active.image)} alt={`${active.title} 转换结果`} /><figcaption>转换结果</figcaption></figure>
+              <p className="eyebrow">{active.game.skill}</p><h2>{active.game.title}</h2><p className="modal-subtitle">{active.game.subtitle}</p>
+              <div className="variant-switch" role="tablist" aria-label="选择转换版本">
+                <button className={active.variant === 'city' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'city'} onClick={() => setActive({ ...active, variant: 'city' })}>上海 · 静安寺</button>
+                <button className={active.variant === 'kyoto' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'kyoto'} onClick={() => setActive({ ...active, variant: 'kyoto' })}>京都 · 五重塔</button>
               </div>
-              <div className="prompt-head"><strong>完整提示词</strong><CopyButton text={active.prompt} label="复制" /></div>
-              <pre>{active.prompt}</pre>
+              <div className="compare-row">
+                <figure><img src={thumbnail(selectedSource(active))} alt="当前参考原图" /><figcaption>当前参考原图</figcaption></figure>
+                <figure><img src={thumbnail(selectedImage(active))} alt={`${active.game.title} 转换结果`} /><figcaption>当前转换结果</figcaption></figure>
+              </div>
+              <div className="prompt-head"><strong>完整提示词</strong><CopyButton text={selectedPrompt(active)} label="复制" /></div>
+              <pre>{selectedPrompt(active)}</pre>
               <div className="structure-block">
                 <strong>Skill 结构</strong>
-                <ol>{(active.structure ?? defaultStructure).map((item) => <li key={item}>{item}</li>)}</ol>
+                <ol>{(active.game.structure ?? defaultStructure).map((item) => <li key={item}>{item}</li>)}</ol>
               </div>
             </div>
           </section>
