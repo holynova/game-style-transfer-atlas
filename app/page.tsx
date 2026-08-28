@@ -16,6 +16,8 @@ type GameStyle = {
   timesSquarePrompt?: string;
 };
 
+type Variant = 'city' | 'kyoto' | 'timesSquare';
+
 const sourceImage = 'images/jingan-source.png';
 const kyotoSourceImage = 'images/kyoto-source.png';
 const timesSquareSourceImage = 'images/times-square-source.png';
@@ -532,6 +534,47 @@ const galleryGames = games.map((game) => ({
   timesSquarePrompt: timesSquarePromptById[game.id],
 }));
 
+type LocationDefinition = {
+  id: string;
+  index: string;
+  title: string;
+  description: string;
+  sourceImage: string;
+  variant: Variant;
+};
+
+const locationDefinitions: LocationDefinition[] = [
+  {
+    id: 'jingan',
+    index: '01 / LOCATION',
+    title: '上海 · 静安寺',
+    description: '金顶、三门立面、阶梯市集和弧顶高楼。',
+    sourceImage,
+    variant: 'city',
+  },
+  {
+    id: 'kyoto',
+    index: '02 / LOCATION',
+    title: '京都 · 古街五重塔',
+    description: '木构街巷、中心五重塔、窄石路和两侧屋檐。',
+    sourceImage: kyotoSourceImage,
+    variant: 'kyoto',
+  },
+  {
+    id: 'times-square',
+    index: '03 / LOCATION',
+    title: '纽约 · 时代广场',
+    description: '横向街谷、曲面屏幕、摩天楼、车流和人行道。',
+    sourceImage: timesSquareSourceImage,
+    variant: 'timesSquare',
+  },
+];
+
+const galleryLocations = locationDefinitions.map((location) => ({
+  ...location,
+  examples: galleryGames,
+}));
+
 function CopyButton({ text, label = '复制提示词' }: { text: string; label?: string }) {
   const [copied, setCopied] = useState(false);
   async function copy() {
@@ -544,7 +587,7 @@ function CopyButton({ text, label = '复制提示词' }: { text: string; label?:
 
 type ActiveSelection = {
   game: GameStyle;
-  variant: 'city' | 'kyoto' | 'timesSquare';
+  variant: Variant;
 };
 
 function selectedImage(selection: ActiveSelection) {
@@ -575,65 +618,65 @@ export default function Home() {
   }, [active]);
 
   return (
-    <main>
+    <main id="top">
       <header className="site-header">
         <div>
           <p className="eyebrow">GAME STYLE TRANSFER ATLAS</p>
-          <h1>同一座城市，进入不同游戏。</h1>
+          <h1>同一处地点，<br />进入不同游戏。</h1>
         </div>
         <div className="intro-block">
-          <p className="intro">用三套城市参考图，快速比较 15 款游戏的实机风格、横竖构图、提示词和 Skill 结构。</p>
+          <p className="intro">按地点浏览三组城市参考图，在同一空间里比较 15 款游戏的实机风格、提示词和 Skill 结构。</p>
           <a className="repo-link" href="https://github.com/holynova/game-style-transfer-atlas" target="_blank" rel="noopener noreferrer">GitHub Repo <span aria-hidden="true">↗</span></a>
         </div>
       </header>
 
-      <section className="source-strip" aria-label="参考原图">
-        <div className="source-item">
-          <img src={thumbnail(sourceImage)} alt="上海静安寺参考原图" />
-          <div>
-            <span>统一参考 01</span><strong>上海 · 静安寺</strong>
-            <p>金顶、三门立面、阶梯市集和弧顶高楼。</p>
-          </div>
-        </div>
-        <div className="source-item">
-          <img src={thumbnail(kyotoSourceImage)} alt="京都古街参考原图" />
-          <div>
-            <span>统一参考 02</span><strong>京都 · 古街五重塔</strong>
-            <p>木构街巷、中心五重塔、窄石路和两侧屋檐。</p>
-          </div>
-        </div>
-        <div className="source-item">
-          <img src={thumbnail(timesSquareSourceImage)} alt="纽约时代广场参考原图" />
-          <div>
-            <span>统一参考 03</span><strong>纽约 · 时代广场</strong>
-            <p>横向街谷、曲面屏幕、摩天楼、车流和人行道。</p>
-          </div>
-        </div>
-      </section>
-
-      <div className="count-line"><span>{galleryGames.length} 款游戏 · 45 张示例</span><span>点击任意图片查看详情</span></div>
-      <section className="gallery" aria-label="游戏风格图库">
-        {galleryGames.map((game, index) => (
-          <article className="card" key={game.id}>
-            <div className="card-visuals">
-              <button className="image-button" type="button" onClick={() => setActive({ game, variant: 'city' })} aria-label={`查看 ${game.title} 的上海静安寺版本`}>
-                <img src={thumbnail(game.image)} alt={`${game.title} 风格的上海静安寺`} loading={index > 2 ? 'lazy' : 'eager'} />
-              </button>
-              <button className="image-button" type="button" onClick={() => setActive({ game, variant: 'kyoto' })} aria-label={`查看 ${game.title} 的京都古街版本`}>
-                <img src={thumbnail(game.variantImage ?? game.image)} alt={`${game.title} 风格的京都古街`} loading="lazy" />
-              </button>
-              <button className="image-button landscape" type="button" onClick={() => setActive({ game, variant: 'timesSquare' })} aria-label={`查看 ${game.title} 的纽约时代广场版本`}>
-                <img src={thumbnail(game.timesSquareImage ?? game.image)} alt={`${game.title} 风格的纽约时代广场`} loading="lazy" />
-              </button>
-            </div>
-            <div className="variant-labels"><span>上海 · 静安寺</span><span>京都 · 五重塔</span><span className="wide-label">纽约 · 时代广场 · 16:9</span></div>
-            <div className="card-meta">
-              <div><h2>{game.title}</h2><p>{game.subtitle}</p></div>
-              <div className="card-actions"><CopyButton text={game.prompt} /><CopyButton text={game.variantPrompt ?? game.prompt} label="京都 Prompt" /><CopyButton text={game.timesSquarePrompt ?? game.prompt} label="纽约 Prompt" /></div>
-            </div>
-          </article>
+      <nav className="location-index" aria-label="按地点浏览">
+        {galleryLocations.map((location) => (
+          <a className="location-link" href={`#location-${location.id}`} key={location.id}>
+            <img src={thumbnail(location.sourceImage)} alt="" />
+            <span className="location-link-copy">
+              <span className="location-code">{location.index}</span>
+              <strong>{location.title}</strong>
+              <em>{location.description}</em>
+            </span>
+            <span className="location-arrow" aria-hidden="true">↘</span>
+          </a>
         ))}
-      </section>
+      </nav>
+
+      <div className="count-line"><span>{galleryLocations.length} 个地点 · {galleryGames.length * galleryLocations.length} 张示例</span><span>每组 {galleryGames.length} 款游戏 · 点击图片查看详情</span></div>
+      {galleryLocations.map((location) => (
+        <section className="location-section" id={`location-${location.id}`} aria-labelledby={`location-title-${location.id}`} key={location.id}>
+          <div className="location-heading">
+            <div>
+              <p className="eyebrow">{location.index}</p>
+              <h2 id={`location-title-${location.id}`}>{location.title}</h2>
+              <p>{location.description}</p>
+            </div>
+            <div className="location-stat"><strong>{location.examples.length}</strong><span>款游戏</span></div>
+          </div>
+          <div className="gallery" aria-label={`${location.title} 游戏风格图库`}>
+            {location.examples.map((game, index) => {
+              const selection: ActiveSelection = { game, variant: location.variant };
+              return (
+                <article className="card" key={`${location.id}-${game.id}`}>
+                  <button className={`image-button ${location.variant === 'timesSquare' ? 'landscape' : ''}`} type="button" onClick={() => setActive(selection)} aria-label={`查看 ${game.title} 的${location.title}版本`}>
+                    <img src={thumbnail(selectedImage(selection))} alt={`${game.title} 风格的${location.title}`} loading={index > 2 ? 'lazy' : 'eager'} />
+                  </button>
+                  <div className="card-meta">
+                    <div>
+                      <p className="card-kicker">{String(index + 1).padStart(2, '0')} / {location.title}</p>
+                      <h3>{game.title}</h3>
+                      <p>{game.subtitle}</p>
+                    </div>
+                    <div className="card-actions"><CopyButton text={selectedPrompt(selection)} /></div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ))}
 
       {active && (
         <div className="modal-backdrop" role="presentation" onMouseDown={() => setActive(null)}>
