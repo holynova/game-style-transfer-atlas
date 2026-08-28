@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -12,13 +11,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="zh-CN">
       <body>
         {children}
-        <Script
+        <script
+          async
           src="https://cloud.umami.is/script.js"
           data-website-id="e01c9f78-4607-4e60-b01c-77c8190b12b4"
           data-domains="holynova.github.io"
           data-exclude-search="true"
           data-exclude-hash="true"
-          strategy="afterInteractive"
         />
       </body>
     </html>
