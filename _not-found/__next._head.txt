@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[58436,["/game-style-transfer-atlas/_next/static/chunks/0wntit41ungah.js","/game-style-transfer-atlas/_next/static/chunks/0v4~pnlx51t1m.js"],"ViewportBoundary"]
+3:I[58436,["/game-style-transfer-atlas/_next/static/chunks/0wntit41ungah.js","/game-style-transfer-atlas/_next/static/chunks/0v4~pnlx51t1m.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Game Style Transfer Atlas"}],["$","meta","1",{"name":"description","content":"用同一张城市照片，比较 15 款世界热门游戏的实机风格转绘与提示词。"}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"eJk5DjiHIhI7aUOA4y7NW"}
