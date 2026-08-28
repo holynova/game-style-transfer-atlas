@@ -2,4 +2,4 @@
 2:I[82868,["/game-style-transfer-atlas/_next/static/chunks/0wntit41ungah.js","/game-style-transfer-atlas/_next/static/chunks/0_3mlmcz5s3uz.js"],"default"]
 3:I[82110,["/game-style-transfer-atlas/_next/static/chunks/0wntit41ungah.js","/game-style-transfer-atlas/_next/static/chunks/0_3mlmcz5s3uz.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"v4M3inCJJzBHwC5nXDein"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"TnJGPMEcjDMX3zF0is5AX"}

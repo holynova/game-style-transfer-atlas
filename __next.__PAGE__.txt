@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
 2:I[27876,["/game-style-transfer-atlas/_next/static/chunks/0wntit41ungah.js","/game-style-transfer-atlas/_next/static/chunks/0_3mlmcz5s3uz.js"],"ClientPageRoot"]
-3:I[27991,["/game-style-transfer-atlas/_next/static/chunks/0wntit41ungah.js","/game-style-transfer-atlas/_next/static/chunks/0_3mlmcz5s3uz.js","/game-style-transfer-atlas/_next/static/chunks/0jm0r64h894ag.js"],"default"]
+3:I[27991,["/game-style-transfer-atlas/_next/static/chunks/0wntit41ungah.js","/game-style-transfer-atlas/_next/static/chunks/0_3mlmcz5s3uz.js","/game-style-transfer-atlas/_next/static/chunks/02w9sxpof_4a2.js"],"default"]
 6:I[58436,["/game-style-transfer-atlas/_next/static/chunks/0wntit41ungah.js","/game-style-transfer-atlas/_next/static/chunks/0_3mlmcz5s3uz.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/game-style-transfer-atlas/_next/static/chunks/0jm0r64h894ag.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"v4M3inCJJzBHwC5nXDein"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/game-style-transfer-atlas/_next/static/chunks/02w9sxpof_4a2.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"TnJGPMEcjDMX3zF0is5AX"}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
