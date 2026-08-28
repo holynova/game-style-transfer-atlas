@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
-
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Game Style Transfer Atlas',
@@ -11,5 +8,19 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-CN"><body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body></html>;
+  return (
+    <html lang="zh-CN">
+      <body>
+        {children}
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="e01c9f78-4607-4e60-b01c-77c8190b12b4"
+          data-domains="holynova.github.io"
+          data-exclude-search="true"
+          data-exclude-hash="true"
+          strategy="afterInteractive"
+        />
+      </body>
+    </html>
+  );
 }

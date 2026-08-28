@@ -581,7 +581,10 @@ export default function Home() {
           <p className="eyebrow">GAME STYLE TRANSFER ATLAS</p>
           <h1>同一座城市，进入不同游戏。</h1>
         </div>
-        <p className="intro">用三套城市参考图，快速比较 15 款游戏的实机风格、横竖构图、提示词和 Skill 结构。</p>
+        <div className="intro-block">
+          <p className="intro">用三套城市参考图，快速比较 15 款游戏的实机风格、横竖构图、提示词和 Skill 结构。</p>
+          <a className="repo-link" href="https://github.com/holynova/game-style-transfer-atlas" target="_blank" rel="noopener noreferrer">GitHub Repo <span aria-hidden="true">↗</span></a>
+        </div>
       </header>
 
       <section className="source-strip" aria-label="参考原图">

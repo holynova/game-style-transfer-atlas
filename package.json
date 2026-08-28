@@ -1,5 +1,5 @@
 {
-  "name": "sites-project",
+  "name": "game-style-transfer-atlas",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -36,5 +36,6 @@
     "vite": "8.0.13",
     "wrangler": "4.92.0"
   },
-  "type": "module"
+  "type": "module",
+  "description": "Visual atlas for comparing game-style image transfers and prompts"
 }
