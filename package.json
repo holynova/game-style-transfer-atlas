@@ -37,5 +37,13 @@
     "wrangler": "4.92.0"
   },
   "type": "module",
-  "description": "Visual atlas for comparing game-style image transfers and prompts"
+  "description": "Visual atlas for comparing game-style image transfers and prompts",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "unrs-resolver",
+      "workerd"
+    ]
+  }
 }
