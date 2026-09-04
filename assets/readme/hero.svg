@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <title>Game Style Transfer Atlas · 游戏风格横屏转译 - Game Style Transfer &amp; Realtime Viewport</title>
+  <defs>
+    <linearGradient id="bgGrad_game-style-transfer-atlas" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0D14"/>
+      <stop offset="100%" stop-color="#04060A"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad_game-style-transfer-atlas" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="420" rx="16" fill="url(#bgGrad_game-style-transfer-atlas)" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- Left Content Block -->
+  <g transform="translate(60, 50)">
+    <!-- Category Pill -->
+    <rect x="0" y="0" width="326" height="28" rx="14" fill="#22C55E" opacity="0.15"/>
+    <text x="14" y="19" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#22C55E" letter-spacing="1.5">GAME VISUAL ENGINE &amp; CINEMATIC SHADER</text>
+
+    <!-- Main Title (Chinese) -->
+    <text x="0" y="85" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="40" font-weight="900" fill="#F8FAFC" letter-spacing="-0.5">
+      Game Style Transfer Atlas · 游戏风格横屏转译
+    </text>
+
+    <!-- Subtitle (English & Value Proposition) -->
+    <text x="0" y="125" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#F59E0B" letter-spacing="0.5">
+      Game Style Transfer &amp; Realtime Viewport
+    </text>
+
+    <!-- Tagline Description -->
+    <text x="0" y="170" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', sans-serif" font-size="16" font-weight="500" fill="#64748B">
+      用三套城市实景比较 15 款顶级游戏的视觉语言、提示词与 16:9 横屏转译
+    </text>
+
+    <!-- Key Spec Badge Array -->
+    <g transform="translate(0, 225)">
+      <!-- Badge 1 -->
+      <rect x="0" y="0" width="563" height="38" rx="8" fill="#1E2430" stroke="#1E293B" stroke-width="1"/>
+      <circle cx="18" cy="19" r="4" fill="#22C55E"/>
+      <text x="32" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">3 CITIES × 15 AAA GAMES · 16:9 CINEMATIC · PROMPT RECIPES</text>
+    </g>
+
+    <!-- Navigation / Quick action badges -->
+    <g transform="translate(0, 285)">
+      <rect x="0" y="0" width="135" height="34" rx="17" fill="#22C55E"/>
+      <text x="67" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">TRY LIVE DEMO</text>
+
+      <rect x="145" y="0" width="125" height="34" rx="17" fill="#1E293B" stroke="#1E293B" stroke-width="1"/>
+      <text x="207" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748B">GITHUB REPO</text>
+    </g>
+  </g>
+
+  <!-- Right Visual Specimen Motif -->
+  
+        <!-- Game Style 16:9 Viewport Visual -->
+        <g transform="translate(740, 45)">
+          <rect x="0" y="0" width="380" height="310" rx="14" fill="#0B0F19" stroke="#1E293B" stroke-width="1.5"/>
+          
+          <!-- 16:9 Frame with HUD Reticle -->
+          <g transform="translate(25, 30)">
+            <rect x="0" y="0" width="330" height="185" rx="8" fill="#111827" stroke="#22C55E" stroke-width="2"/>
+            
+            <!-- Corner Brackets -->
+            <path d="M10 25 L10 10 L25 10" stroke="#22C55E" stroke-width="2.5" fill="none"/>
+            <path d="M305 10 L320 10 L320 25" stroke="#22C55E" stroke-width="2.5" fill="none"/>
+            <path d="M10 160 L10 175 L25 175" stroke="#22C55E" stroke-width="2.5" fill="none"/>
+            <path d="M305 175 L320 175 L320 160" stroke="#22C55E" stroke-width="2.5" fill="none"/>
+
+            <!-- Center Target Crosshair -->
+            <circle cx="165" cy="92" r="28" fill="none" stroke="#22C55E" stroke-width="1.5" stroke-dasharray="6 3"/>
+            <circle cx="165" cy="92" r="4" fill="#22C55E"/>
+            <line x1="165" y1="54" x2="165" y2="60" stroke="#22C55E" stroke-width="2"/>
+            <line x1="165" y1="124" x2="165" y2="130" stroke="#22C55E" stroke-width="2"/>
+            <line x1="127" y1="92" x2="133" y2="92" stroke="#22C55E" stroke-width="2"/>
+            <line x1="197" y1="92" x2="203" y2="92" stroke="#22C55E" stroke-width="2"/>
+
+            <!-- Game HUD Tags -->
+            <text x="20" y="30" font-family="system-ui, monospace" font-size="10" font-weight="800" fill="#22C55E">CAM: TIMES SQ</text>
+            <text x="310" y="30" text-anchor="end" font-family="system-ui, monospace" font-size="10" font-weight="800" fill="#F59E0B">STYLE: CYBERPUNK 2077</text>
+            <text x="20" y="165" font-family="system-ui, monospace" font-size="9" font-weight="700" fill="#64748B">FOV: 90° // 4K HDR</text>
+            <text x="310" y="165" text-anchor="end" font-family="system-ui, monospace" font-size="9" font-weight="700" fill="#06B6D4">SHADER: VOLUMETRIC</text>
+          </g>
+
+          <!-- 15 AAA Games Ticker -->
+          <rect x="25" y="235" width="330" height="45" rx="8" fill="#131D2E" stroke="#22C55E" stroke-width="1"/>
+          <text x="190" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">15 AAA GAMES SHADER TRANSFER</text>
+          <text x="190" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#22C55E">ZELDA · BLACK MYTH · GTA V · ELDEN RING</text>
+        </g>
+        
+</svg>
