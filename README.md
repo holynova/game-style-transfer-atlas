@@ -25,7 +25,7 @@
 
 ## 项目简介 (What It Is)
 
-以游戏主机 HUD 视窗与概念美术为灵感打造的实机画风转译图鉴。选取纽约时代广场、京都街巷、上海高架三组真实城市照片，将其精确转译为《赛博朋克2077》《塞尔达传说》《黑神话：悟空》《GTA V》《暗黑破坏神》等 15 款知名游戏的实机视觉风格。
+以游戏主机 HUD 视窗与概念美术为灵感打造的实机画风转译图鉴。选取纽约时代广场、京都街巷、上海高架三组真实城市照片，展示其转译为《赛博朋克2077》《塞尔达传说》《黑神话：悟空》《GTA V》《暗黑破坏神》等 15 款知名游戏的实机视觉风格。
 
 ---
 
@@ -34,9 +34,11 @@
 - **16:9 电影级横屏取景**：还原次世代游戏主机的原生视窗视野，自带 HUD 瞄准准星与参数信息卡。
 - **真实照片基准比对**：采用原片与转译图无缝并排滑块对比，直观展现材质、光影、着色器与氛围重塑。
 - **15 款 AAA 游戏着色解构**：深入解析次表面散射、体积雾、卡通渲染 (Cel-shading)、像素噪点等核心管线。
-- **一键提取游戏提示词**：每套风格配套完整的 AI 作图提示词配方，精准复刻目标游戏的光影与构图。
+- **一键提取游戏提示词**：每套风格配套完整的 AI 作图提示词配方，供比较与继续创作使用；实际生成效果取决于模型、版本和输入。
 
 ---
+
+站点用于浏览已生成的图像与提示词，不是在浏览器内运行这些游戏或实时渲染其引擎。
 
 ## 收录清单与规格 (Inventory & Scope)
 
@@ -52,12 +54,13 @@
 - 🚀 **备选镜像 (GitHub Pages)**：[https://holynova.github.io/game-style-transfer-atlas/](https://holynova.github.io/game-style-transfer-atlas/)
 
 ### 2. 本地运行与调试
-克隆仓库后执行以下命令：
+需要 Node.js 22.13.0 或更高版本与 pnpm。克隆仓库后执行：
 
 ```bash
 git clone https://github.com/holynova/game-style-transfer-atlas.git
 cd game-style-transfer-atlas
-npm install && npm run dev
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
 ---
@@ -65,5 +68,5 @@ npm install && npm run dev
 ## 开源协议与作者 (License & Author)
 
 - **作者**：[holynova (小桑)](https://xiaosang.cc/)
-- **授权协议**：[MIT License](./LICENSE)
+- **授权说明**：仓库当前未附独立 LICENSE 文件；复用代码或素材前请确认相应授权。
 - **合辑收录**：本仓库作为精选项目收录于 [Where Craft Lives (xiaosang.cc)](https://xiaosang.cc/)。
