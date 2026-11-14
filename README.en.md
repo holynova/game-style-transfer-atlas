@@ -25,22 +25,22 @@
 
 ## What It Is
 
-Inspired by console HUD viewports and concept game art. Translates three real-world city photo sets (Times Square, Kyoto alleys, Shanghai elevated highways) into the distinct visual shaders of 15 iconic video games including Cyberpunk 2077, Zelda: Breath of the Wild, Black Myth: Wukong, GTA V, and Diablo.
+Inspired by console HUD viewports and concept game art. Translates three real-world city photo sets (Times Square, Kyoto old streets, Shanghai Jing'an Temple) into the distinct visual styles of 15 video games including Cyberpunk 2077, Zelda: Tears of the Kingdom, Elden Ring, GTA V, and Minecraft.
 
 ---
 
 ## Why It Matters (Key Features)
 
-- **16:9 Cinematic Landscape Viewport**: Recreates console HUD reticles, crosshairs, and telemetry telemetry data overlays.
-- **Real-World Photo Benchmark Comparison**: Seamless split-screen slider demonstrating material, lighting, volumetric fog, and shader shifts.
-- **15 AAA Game Shader Breakdown**: Deconstructs cel-shading, PBR, subsurface scattering, and pixelation shaders across 15 game titles.
-- **Extracted Turnkey Prompt Recipes**: Exact prompt formulas provided for each game style, reproducible in Midjourney, Flux, or SD.
+- **Three aspect ratios, true to source**: Times Square 16:9 landscape, Kyoto 4:5 portrait, Jing'an Temple 9:16 portrait.
+- **Real-World Photo Benchmark Comparison**: The detail view places the source photo next to the transfer result, showing material, lighting, and atmosphere shifts.
+- **Skill Structure Notes**: Each style ships with a shared 6-step skill structure (input anchors, world translation, render language, gameplay camera, HUD constraints, negative constraints) explaining how the prompt is organized.
+- **Extracted Turnkey Prompt Recipes**: Full prompt text for each game style, ready to copy and reuse.
 
 ---
 
 ## Inventory & Scope
 
-15 game visual styles (Cyberpunk 2077, Black Myth, Zelda, GTA V, Fallout, Elden Ring, etc.), 3 photo locations, 16:9 lightbox.
+15 game visual styles (Cyberpunk 2077, Zelda: Tears of the Kingdom, Elden Ring, GTA V, Minecraft, etc.), 3 photo locations (Jing'an 9:16, Kyoto 4:5, Times Square 16:9), detail lightbox.
 
 ---
 
