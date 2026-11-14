@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Game Style Transfer Atlas',
-  description: '用同一张城市照片，比较 15 款世界热门游戏的实机风格转绘与提示词。',
+  description: '用三组城市照片，比较 15 款热门游戏的实机风格转绘与提示词。',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

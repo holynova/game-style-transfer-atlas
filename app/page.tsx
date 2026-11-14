@@ -36,7 +36,7 @@ const games: GameStyle[] = [
   {
     id: 'zelda',
     title: 'Zelda: Tears of the Kingdom',
-    subtitle: '明亮色块 · 海拉鲁探索 · 轻量 HUD',
+    subtitle: '明亮色块、海拉鲁探索、轻量 HUD',
     image: 'images/zelda.png',
     skill: 'zelda-screenshot-transfer',
     prompt: `Use case: style-transfer
@@ -49,7 +49,7 @@ Avoid: illustration, anime poster, cinematic CG, photoreal city, dense windows, 
   {
     id: 'dark-souls-3',
     title: 'Dark Souls III',
-    subtitle: '灰烬衰败 · 洛斯里克石材 · 魂系 HUD',
+    subtitle: '灰烬衰败、洛斯里克石材、魂系 HUD',
     image: 'images/dark-souls-3.png',
     skill: 'dark-souls-3-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -62,7 +62,7 @@ Avoid: fantasy poster, oversized boss, excessive flames, modern objects, anime, 
   {
     id: 'elden-ring',
     title: 'Elden Ring',
-    subtitle: '黄金树恩典 · 王城圣殿 · 开放世界',
+    subtitle: '黄金树恩典、王城圣殿、开放世界',
     image: 'images/elden-ring.png',
     skill: 'elden-ring-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -75,7 +75,7 @@ Avoid: generic golden palace, excessive ornament, boss key art, modern objects, 
   {
     id: 'honor-of-kings',
     title: 'Honor of Kings',
-    subtitle: '兵线 · 防御塔 · 高可读性移动 MOBA',
+    subtitle: '兵线、防御塔、高可读性移动 MOBA',
     image: 'images/honor-of-kings.png',
     skill: 'honor-of-kings-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -88,7 +88,7 @@ Avoid: splash art, giant character portrait, excessive VFX, modern vehicles, ove
   {
     id: 'animal-crossing',
     title: 'Animal Crossing: New Horizons',
-    subtitle: '圆润低多边形 · 岛屿市集 · 轻松生活',
+    subtitle: '圆润低多边形、岛屿市集、轻松生活',
     image: 'images/animal-crossing.png',
     skill: 'animal-crossing-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -101,7 +101,7 @@ Avoid: combat, dark fantasy, realistic crowds, clutter, photoreal materials, exc
   {
     id: 'minecraft',
     title: 'Minecraft',
-    subtitle: '方块体素 · 生存模式 · 像素材质',
+    subtitle: '方块体素、生存模式、像素材质',
     image: 'images/minecraft.png',
     skill: 'minecraft-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -114,7 +114,7 @@ Avoid: rounded geometry, realistic people, cinematic ray tracing, generic fantas
   {
     id: 'fortnite',
     title: 'Fortnite',
-    subtitle: '明亮 PBR · 大逃杀 POI · 建造与战利品',
+    subtitle: '明亮 PBR、大逃杀 POI、建造与战利品',
     image: 'images/fortnite.png',
     skill: 'fortnite-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -126,8 +126,8 @@ Avoid: key art, giant hero portrait, realistic military look, excessive effects,
   },
   {
     id: 'gta-v',
-    title: 'GTA 5 · Grand Theft Auto V',
-    subtitle: '开放城市 · 写实交通 · 第三人称任务',
+    title: 'GTA 5 — Grand Theft Auto V',
+    subtitle: '开放城市、写实交通、第三人称任务',
     image: 'images/gta-v.png',
     skill: 'gta-v-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -141,7 +141,7 @@ Avoid: cinematic poster, giant character, explosions, generic American skyline, 
   {
     id: 'cyberpunk-2077',
     title: 'Cyberpunk 2077',
-    subtitle: '雨夜霓虹 · 第一人称 · 科技寺院',
+    subtitle: '雨夜霓虹、第一人称、科技寺院',
     image: 'images/cyberpunk-2077.png',
     skill: 'cyberpunk-2077-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -154,7 +154,7 @@ Avoid: movie still, giant portrait, billboards hiding the temple, fantasy castle
   {
     id: 'red-dead-redemption-2',
     title: 'Red Dead Redemption 2',
-    subtitle: '1899 年代 · 西部写实 · 圣丹尼斯市集',
+    subtitle: '1899 年代、西部写实、圣丹尼斯市集',
     image: 'images/red-dead-redemption-2.png',
     skill: 'rdr2-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -167,7 +167,7 @@ Avoid: movie poster, giant gunfight, sepia-only treatment, modern objects, water
   {
     id: 'hogwarts-legacy',
     title: 'Hogwarts Legacy',
-    subtitle: '魔法学院 · 东方庭院 · 咒语探索',
+    subtitle: '魔法学院、东方庭院、咒语探索',
     image: 'images/hogwarts-legacy.png',
     skill: 'hogwarts-legacy-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -181,7 +181,7 @@ Avoid: giant castle replacing the temple, battle scene, theme-park poster, exces
   {
     id: 'super-mario-odyssey',
     title: 'Super Mario Odyssey',
-    subtitle: '环球 3D 平台 · 金币路线 · 玩具化关卡',
+    subtitle: '环球 3D 平台、金币路线、玩具化关卡',
     image: 'images/super-mario-odyssey.png',
     skill: '3d-platformer-screenshot-transfer / safe visual prototype',
     prompt: `Use case: style-transfer
@@ -194,7 +194,7 @@ Avoid: character close-up, key art, photorealism, generic field replacing the ci
   {
     id: 'pokemon-scarlet-violet',
     title: 'Pokémon Scarlet / Violet',
-    subtitle: '开放世界 · 动漫渲染 · 训练家与伙伴',
+    subtitle: '开放世界、动漫渲染、训练家与伙伴',
     image: 'images/pokemon-scarlet-violet.png',
     skill: 'pokemon-sv-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -207,7 +207,7 @@ Avoid: giant mascot portrait, battle key art, photorealism, generic empty field,
   {
     id: 'resident-evil-4',
     title: 'Resident Evil 4 Remake',
-    subtitle: '越肩生存恐怖 · 冷色废墟 · 压迫动线',
+    subtitle: '越肩生存恐怖、冷色废墟、压迫动线',
     image: 'images/resident-evil-4.png',
     skill: 'resident-evil-4-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -221,7 +221,7 @@ Avoid: gore, giant monster, action poster, unreadably dark architecture, waterma
   {
     id: 'silent-hill-2',
     title: 'Silent Hill 2 Remake',
-    subtitle: '心理恐怖 · 浓雾空城 · 孤独探索',
+    subtitle: '心理恐怖、浓雾空城、孤独探索',
     image: 'images/silent-hill-2.png',
     skill: 'silent-hill-2-screenshot-transfer / prompt prototype',
     prompt: `Use case: style-transfer
@@ -547,7 +547,7 @@ const locationDefinitions: LocationDefinition[] = [
   {
     id: 'jingan',
     index: '01 / LOCATION',
-    title: '上海 · 静安寺',
+    title: '上海—静安寺',
     description: '金顶、三门立面、阶梯市集和弧顶高楼。',
     sourceImage,
     variant: 'city',
@@ -555,7 +555,7 @@ const locationDefinitions: LocationDefinition[] = [
   {
     id: 'kyoto',
     index: '02 / LOCATION',
-    title: '京都 · 古街五重塔',
+    title: '京都—古街五重塔',
     description: '木构街巷、中心五重塔、窄石路和两侧屋檐。',
     sourceImage: kyotoSourceImage,
     variant: 'kyoto',
@@ -563,7 +563,7 @@ const locationDefinitions: LocationDefinition[] = [
   {
     id: 'times-square',
     index: '03 / LOCATION',
-    title: '纽约 · 时代广场',
+    title: '纽约—时代广场',
     description: '横向街谷、曲面屏幕、摩天楼、车流和人行道。',
     sourceImage: timesSquareSourceImage,
     variant: 'timesSquare',
@@ -576,13 +576,17 @@ const galleryLocations = locationDefinitions.map((location) => ({
 }));
 
 function CopyButton({ text, label = '复制提示词' }: { text: string; label?: string }) {
-  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
   async function copy() {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1400);
+    try {
+      await navigator.clipboard.writeText(text);
+      setStatus('copied');
+    } catch {
+      setStatus('failed');
+    }
+    window.setTimeout(() => setStatus('idle'), 1400);
   }
-  return <button className="copy-button" onClick={copy} type="button">{copied ? '已复制' : label}</button>;
+  return <button className="copy-button" onClick={copy} type="button">{status === 'copied' ? '已复制' : status === 'failed' ? '复制失败' : label}</button>;
 }
 
 type ActiveSelection = {
@@ -644,7 +648,7 @@ export default function Home() {
         ))}
       </nav>
 
-      <div className="count-line"><span>{galleryLocations.length} 个地点 · {galleryGames.length * galleryLocations.length} 张示例</span><span>每组 {galleryGames.length} 款游戏 · 点击图片查看详情</span></div>
+      <div className="count-line"><span>{galleryLocations.length} 个地点，共 {galleryGames.length * galleryLocations.length} 张示例</span><span>每组 {galleryGames.length} 款游戏，点击图片查看详情</span></div>
       {galleryLocations.map((location) => (
         <section className="location-section" id={`location-${location.id}`} aria-labelledby={`location-title-${location.id}`} key={location.id}>
           <div className="location-heading">
@@ -682,13 +686,13 @@ export default function Home() {
         <div className="modal-backdrop" role="presentation" onMouseDown={() => setActive(null)}>
           <section className="modal" role="dialog" aria-modal="true" aria-label={`${active.game.title} 详情`} onMouseDown={(event) => event.stopPropagation()}>
             <button className="close-button" type="button" onClick={() => setActive(null)} aria-label="关闭详情">×</button>
-            <div className={`modal-visual ${active.variant === 'timesSquare' ? 'landscape' : ''}`}><img src={selectedImage(active)} alt={`${active.game.title} 风格转换大图`} /></div>
+            <div className={`modal-visual ${active.variant === 'timesSquare' ? 'landscape' : active.variant === 'kyoto' ? 'contain' : ''}`}><img src={selectedImage(active)} alt={`${active.game.title} 风格转换大图`} /></div>
             <div className="modal-content">
               <p className="eyebrow">{active.game.skill}</p><h2>{active.game.title}</h2><p className="modal-subtitle">{active.game.subtitle}</p>
               <div className="variant-switch" role="tablist" aria-label="选择转换版本">
-                <button className={active.variant === 'city' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'city'} onClick={() => setActive({ ...active, variant: 'city' })}>上海 · 静安寺</button>
-                <button className={active.variant === 'kyoto' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'kyoto'} onClick={() => setActive({ ...active, variant: 'kyoto' })}>京都 · 五重塔</button>
-                <button className={active.variant === 'timesSquare' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'timesSquare'} onClick={() => setActive({ ...active, variant: 'timesSquare' })}>纽约 · 时代广场 · 16:9</button>
+                <button className={active.variant === 'city' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'city'} onClick={() => setActive({ ...active, variant: 'city' })}>上海—静安寺</button>
+                <button className={active.variant === 'kyoto' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'kyoto'} onClick={() => setActive({ ...active, variant: 'kyoto' })}>京都—古街五重塔</button>
+                <button className={active.variant === 'timesSquare' ? 'is-active' : ''} type="button" role="tab" aria-selected={active.variant === 'timesSquare'} onClick={() => setActive({ ...active, variant: 'timesSquare' })}>纽约—时代广场（16:9）</button>
               </div>
               <div className="compare-row">
                 <figure><img src={thumbnail(selectedSource(active))} alt="当前参考原图" /><figcaption>当前参考原图</figcaption></figure>
