@@ -1,69 +1,86 @@
-<p align="right">
-  <strong>简体中文</strong> · <a href="./README.en.md">English</a>
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="Game Style Transfer Atlas · 游戏风格横屏转译 — 三组城市实景转译为 15 款游戏的实机风格">
 </p>
 
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Game Style Transfer Atlas · 游戏风格横屏转译 - Game Style Transfer & Realtime Viewport">
+  <a href="https://xiaosang.cc/game-style-transfer-atlas/">▶ 在线体验 Try Online</a>
+  ·
+  <a href="https://github.com/holynova/game-style-transfer-atlas">GitHub 仓库</a>
 </p>
+
+游戏风格转译图鉴：取纽约时代广场、京都街巷、上海静安寺三组真实城市照片，把同一街景转译成 15 款热门游戏的实机视觉风格——同一条街，在《塞尔达传说》里是明亮色块，在《黑暗之魂 III》里是灰烬衰败。每个转译都配原图对照、完整提示词与 Skill 结构，可一键复制提示词复刻。
+
+Game Style Transfer Atlas takes three real city photos — Times Square in New York, a Kyoto street, Jing'an Temple in Shanghai — and re-renders the same streets in the in-game visual style of 15 popular games. The same street is bright cel-shaded blocks in Zelda and ashen decay in Dark Souls III. Every transfer ships with the source photo side by side, the full prompt, and its Skill structure, ready to copy and reuse.
+
+## 截图 / Screenshots
 
 <p align="center">
-  <a href="https://game-style-transfer-atlas.xiaosang.cc/"><strong>🌐 在线体验 (Live Demo)</strong></a> · 
-  <a href="https://holynova.github.io/game-style-transfer-atlas/"><strong>🚀 备选镜像 (GitHub Pages)</strong></a> · 
-  <a href="https://github.com/holynova/game-style-transfer-atlas"><strong>📦 GitHub 源码</strong></a> · 
-  <a href="https://xiaosang.cc/"><strong>✨ 更多作品集</strong></a>
+  <img src="./assets/readme/screenshot.jpg" width="100%" alt="图鉴网格：同一组上海与京都街景在塞尔达、黑暗之魂 III、艾尔登法环三种风格下的转译结果，15 款游戏 · 45 张示例">
 </p>
 
----
+## 收录 / Inventory
 
-## 真实预览 (Proof of Work)
+**15 款游戏 × 3 组城市实景 = 45 张示例**
 
-<p align="center">
-  <img src="./assets/readme/screenshot.jpg" width="100%" alt="Game Style Transfer Atlas · 游戏风格横屏转译 实际运行效果截图">
-</p>
+| 游戏 | 风格关键词 |
+|------|-----------|
+| 塞尔达传说：王国之泪 | 明亮色块 · 海拉鲁探索 · 轻量 HUD |
+| 黑暗之魂 III | 灰烬衰败 · 洛斯里克石材 · 魂系 HUD |
+| 艾尔登法环 | 黄金树恩典 · 王城圣殿 · 开放世界 |
+| 赛博朋克 2077 | 霓虹夜城 · 高对比义体美学 |
+| GTA V | 洛圣都日光 · 写实都市 |
+| 集合啦！动物森友会 | 柔和手绘 · 治愈小岛 |
+| 堡垒之夜 | 鲜艳卡通 · 建筑感 |
+| 霍格沃茨之遗 | 魔法城堡 · 奇幻氛围 |
+| 王者荣耀 | 兵线 · 防御塔 · 高可读性移动 MOBA |
+| 我的世界 | 方块体素 · 像素质感 |
+| 宝可梦 朱 / 紫 | 明快动漫 · 帕底亚风光 |
+| 荒野大镖客：救赎 2 | 西部荒原 · 电影级光影 |
+| 生化危机 4 | 阴冷写实 · 恐怖氛围 |
+| 寂静岭 2 | 浓雾压抑 · 心理恐怖 |
+| 超级马里奥：奥德赛 | 缤纷跳跃 · 童趣世界 |
 
----
+**3 组城市实景**：纽约 · 时代广场（16:9 横屏）、京都 · 五重塔、上海 · 静安寺。
 
-## 项目简介 (What It Is)
+## 功能 / Features
 
-以游戏主机 HUD 视窗与概念美术为灵感打造的实机画风转译图鉴。选取纽约时代广场、京都街巷、上海高架三组真实城市照片，将其精确转译为《赛博朋克2077》《塞尔达传说》《黑神话：悟空》《GTA V》《暗黑破坏神》等 15 款知名游戏的实机视觉风格。
+- **三城对照**：点任意游戏卡片进详情灯箱，在上海 / 京都 / 纽约三组实景间切换，看同一风格如何落在不同城市。
+- **原图并排对照**：详情里当前参考原图与转换结果并排展示，直观比较材质、光影与氛围重塑。
+- **一键复制提示词**：每套风格配完整提示词配方与 Skill 结构，点复制即可在 AI 作图里复刻。
+- **16:9 横屏取景**：纽约时代广场一组为 16:9 电影级画幅，还原次世代游戏主机的原生视窗。
 
----
-
-## 核心机制与特色 (Why It Matters)
-
-- **16:9 电影级横屏取景**：还原次世代游戏主机的原生视窗视野，自带 HUD 瞄准准星与参数信息卡。
-- **真实照片基准比对**：采用原片与转译图无缝并排滑块对比，直观展现材质、光影、着色器与氛围重塑。
-- **15 款 AAA 游戏着色解构**：深入解析次表面散射、体积雾、卡通渲染 (Cel-shading)、像素噪点等核心管线。
-- **一键提取游戏提示词**：每套风格配套完整的 AI 作图提示词配方，精准复刻目标游戏的光影与构图。
-
----
-
-## 收录清单与规格 (Inventory & Scope)
-
-15 款热门游戏视觉模型（赛博朋克2077、黑神话、塞尔达传说、GTA V、辐射、艾尔登法环等）、3 组地标实景图、16:9 画幅放大灯箱。
-
----
-
-## 快速开始 (Quick Start)
-
-### 1. 在线体验
-无需安装任何环境，直接在浏览器中打开：
-- 🌐 **主站演示 (Primary)**：[https://game-style-transfer-atlas.xiaosang.cc/](https://game-style-transfer-atlas.xiaosang.cc/)
-- 🚀 **备选镜像 (GitHub Pages)**：[https://holynova.github.io/game-style-transfer-atlas/](https://holynova.github.io/game-style-transfer-atlas/)
-
-### 2. 本地运行与调试
-克隆仓库后执行以下命令：
+## 本地运行 / Run Locally
 
 ```bash
-git clone https://github.com/holynova/game-style-transfer-atlas.git
-cd game-style-transfer-atlas
-npm install && npm run dev
+npm install
+npm run dev      # 开发服务器（Node >= 22.13）
+npm run build    # 生产构建
 ```
 
----
+## 技术 / Tech
 
-## 开源协议与作者 (License & Author)
+- Next.js 16 + React 19 + Tailwind CSS 4，单页应用（`app/page.tsx`），全部内容为本地静态数据，无后端。
+- 45 张转译图与 3 张原图在 `public/images/`，缩略图（WebP）在 `public/images/thumbs/`。
 
-- **作者**：[holynova (小桑)](https://xiaosang.cc/)
-- **授权协议**：[MIT License](./LICENSE)
-- **合辑收录**：本仓库作为精选项目收录于 [Where Craft Lives (xiaosang.cc)](https://xiaosang.cc/)。
+```
+app/page.tsx            单页应用：图鉴网格 / 详情灯箱 / 原图对照 / 提示词复制
+app/layout.tsx          页面骨架与元信息
+app/globals.css         全局样式（含 HUD 视窗视觉）
+public/images/          15 款游戏 × 3 城市转译图 + 3 张城市原图
+public/images/thumbs/   WebP 缩略图
+```
+
+## English
+
+**Game Style Transfer Atlas** re-renders three real city photos — Times Square (New York), a Kyoto street, and Jing'an Temple (Shanghai) — in the in-game visual style of 15 popular games: Zelda: Tears of the Kingdom, Dark Souls III, Elden Ring, Cyberpunk 2077, GTA V, Animal Crossing, Fortnite, Hogwarts Legacy, Honor of Kings, Minecraft, Pokémon Scarlet/Violet, Red Dead Redemption 2, Resident Evil 4, Silent Hill 2, and Super Mario Odyssey. **15 games × 3 cities = 45 examples.**
+
+- **Three-city comparison**: open any game card to switch between Shanghai, Kyoto, and New York and see how one style lands on different cities.
+- **Source side by side**: each detail view pairs the original photo with the transfer for direct comparison of materials, lighting, and mood.
+- **Copyable prompts**: every style ships with its full prompt recipe and Skill structure — one click to copy and reproduce.
+- **16:9 widescreen**: the Times Square set is framed in cinematic 16:9, matching a console viewport.
+- **Run it**: `npm install && npm run dev` (Node >= 22.13).
+- **Tech**: Next.js 16 + React 19 + Tailwind CSS 4, single-page app with fully local static data; images live in `public/images/`, WebP thumbnails in `public/images/thumbs/`.
+
+## 许可 / License
+
+本仓库暂未附 LICENSE 文件。
