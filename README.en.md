@@ -1,69 +1,71 @@
-<p align="right">
-  <a href="./README.md">简体中文</a> · <strong>English</strong>
+<p align="right"><a href="README.md">中文</a></p>
+
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="Game Style Transfer Atlas — three real city photos re-rendered in the in-game visual styles of 15 games">
 </p>
 
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Game Style Transfer & Realtime Viewport">
+  <a href="https://xiaosang.cc/game-style-transfer-atlas/">▶ Try Online</a>
+  ·
+  <a href="https://github.com/holynova/game-style-transfer-atlas">GitHub Repository</a>
 </p>
+
+Game Style Transfer Atlas takes three real city photos — Times Square in New York, a Kyoto street, Jing'an Temple in Shanghai — and re-renders the same streets in the in-game visual style of 15 popular games. The same street is bright cel-shaded blocks in Zelda and ashen decay in Dark Souls III. Every transfer ships with the source photo side by side, the full prompt, and its Skill structure, ready to copy and reuse.
+
+## Screenshots
 
 <p align="center">
-  <a href="https://game-style-transfer-atlas.xiaosang.cc/"><strong>🌐 Live Demo (Primary)</strong></a> · 
-  <a href="https://holynova.github.io/game-style-transfer-atlas/"><strong>🚀 Mirror (GitHub Pages)</strong></a> · 
-  <a href="https://github.com/holynova/game-style-transfer-atlas"><strong>📦 GitHub Source</strong></a> · 
-  <a href="https://xiaosang.cc/"><strong>✨ Portfolio</strong></a>
+  <img src="./assets/readme/screenshot.jpg" width="100%" alt="Atlas grid: the same Shanghai and Kyoto street scenes re-rendered in the styles of Zelda, Dark Souls III, and Elden Ring — 15 games, 45 examples">
 </p>
 
----
+## Inventory
 
-## Proof of Work
+**15 games × 3 real city photos = 45 examples**
 
-<p align="center">
-  <img src="./assets/readme/screenshot.jpg" width="100%" alt="Game Style Transfer & Realtime Viewport Live Interface Screenshot">
-</p>
+| Game | Style keywords |
+|------|-----------|
+| The Legend of Zelda: Tears of the Kingdom | Bright cel shading · Hyrule exploration · Light HUD |
+| Dark Souls III | Ashen decay · Lothric stone · Souls-style HUD |
+| Elden Ring | Erdtree grace · Royal capital · Open world |
+| Cyberpunk 2077 | Neon Night City · High-contrast cyberware aesthetic |
+| GTA V | Los Santos sunlight · Realistic city |
+| Animal Crossing: New Horizons | Soft hand-drawn · Cozy island |
+| Fortnite | Vivid cartoon · Architectural feel |
+| Hogwarts Legacy | Magic castle · Fantasy atmosphere |
+| Honor of Kings | Lanes · Turrets · Highly readable mobile MOBA |
+| Minecraft | Block voxels · Pixel texture |
+| Pokémon Scarlet / Violet | Bright anime · Paldea scenery |
+| Red Dead Redemption 2 | Western wilderness · Cinematic lighting |
+| Resident Evil 4 | Cold realism · Horror atmosphere |
+| Silent Hill 2 | Thick fog · Psychological dread |
+| Super Mario Odyssey | Colorful jumping · Playful world |
 
----
+**3 real city photos**: New York · Times Square (16:9 widescreen), Kyoto · Five-Story Pagoda, Shanghai · Jing'an Temple.
 
-## What It Is
+## Features
 
-Inspired by console HUD viewports and concept game art. Translates three real-world city photo sets (Times Square, Kyoto alleys, Shanghai elevated highways) into the distinct visual shaders of 15 iconic video games including Cyberpunk 2077, Zelda: Breath of the Wild, Black Myth: Wukong, GTA V, and Diablo.
+- **Three-city comparison**: open any game card to switch between Shanghai, Kyoto, and New York and see how one style lands on different cities.
+- **Source side by side**: each detail view pairs the original photo with the transfer for direct comparison of materials, lighting, and mood.
+- **Copyable prompts**: every style ships with its full prompt recipe and Skill structure — one click to copy and reproduce.
+- **16:9 widescreen**: the Times Square set is framed in cinematic 16:9, matching a console viewport.
 
----
-
-## Why It Matters (Key Features)
-
-- **16:9 Cinematic Landscape Viewport**: Recreates console HUD reticles, crosshairs, and telemetry telemetry data overlays.
-- **Real-World Photo Benchmark Comparison**: Seamless split-screen slider demonstrating material, lighting, volumetric fog, and shader shifts.
-- **15 AAA Game Shader Breakdown**: Deconstructs cel-shading, PBR, subsurface scattering, and pixelation shaders across 15 game titles.
-- **Extracted Turnkey Prompt Recipes**: Exact prompt formulas provided for each game style, reproducible in Midjourney, Flux, or SD.
-
----
-
-## Inventory & Scope
-
-15 game visual styles (Cyberpunk 2077, Black Myth, Zelda, GTA V, Fallout, Elden Ring, etc.), 3 photo locations, 16:9 lightbox.
-
----
-
-## Quick Start
-
-### 1. Live Demos
-Experience it directly in your browser without any setup:
-- 🌐 **Primary Demo**: [https://game-style-transfer-atlas.xiaosang.cc/](https://game-style-transfer-atlas.xiaosang.cc/)
-- 🚀 **Alternative Mirror (GitHub Pages)**: [https://holynova.github.io/game-style-transfer-atlas/](https://holynova.github.io/game-style-transfer-atlas/)
-
-### 2. Local Development
-Clone the repository and launch locally:
+## Run Locally
 
 ```bash
-git clone https://github.com/holynova/game-style-transfer-atlas.git
-cd game-style-transfer-atlas
-npm install && npm run dev
+npm install
+npm run dev      # development server (Node >= 22.13)
+npm run build    # production build
 ```
 
----
+## Tech
 
-## License & Author
+- Next.js 16 + React 19 + Tailwind CSS 4, single-page app (`app/page.tsx`), fully local static data, no backend.
+- 45 transfer images and 3 source photos live in `public/images/`; WebP thumbnails in `public/images/thumbs/`.
 
-- **Author**: [holynova (Xiaosang)](https://xiaosang.cc/)
-- **License**: [MIT License](./LICENSE)
-- **Featured Collection**: Curated as part of [Where Craft Lives (xiaosang.cc)](https://xiaosang.cc/).
+```
+app/page.tsx            Single-page app: atlas grid / detail lightbox / source comparison / prompt copy
+app/layout.tsx          Page skeleton and metadata
+app/globals.css         Global styles (including the HUD viewport look)
+public/images/          15 games × 3 cities transfers + 3 city source photos
+public/images/thumbs/   WebP thumbnails
+```
